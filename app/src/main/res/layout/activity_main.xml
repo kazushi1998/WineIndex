@@ -11,8 +11,7 @@
         android:id="@+id/imageView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/chatzli"
-        />
+        android:src="@drawable/chatzli" />
 
     <TextView
         android:id="@+id/textView3"
