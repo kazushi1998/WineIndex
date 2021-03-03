@@ -59,27 +59,61 @@
             android:scaleType="fitCenter"
             android:background="@null"
             app:srcCompat="@drawable/wrench" />
-    </LinearLayout>
 
-    <View
-        android:id="@+id/divider3"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Vineyards"
+        android:text="ADD WINE"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/white"/>
 
-    <ListView
-        android:id="@+id/android:list"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/imageButton_wineBottle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/winebottle" />
+
+        <EditText
+            android:id="@+id/edit_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:textColorHint="@color/white"/>
+
+        <EditText
+            android:id="@+id/edit_year"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Year"
+            android:textColorHint="@color/white"/>
+
+        <EditText
+            android:id="@+id/edit_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Price"
+            android:textColorHint="@color/white"/>
+
+        <EditText
+            android:id="@+id/edit_winery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Winery"
+            android:textColorHint="@color/white"/>
+    </LinearLayout>
 
 </LinearLayout>
