@@ -41,8 +41,8 @@
             android:scaleType="fitCenter"
             android:background="@null"
             android:src="@drawable/ort"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
              />
 
         <ImageButton
@@ -54,8 +54,8 @@
             android:scaleType="fitCenter"
             android:background="@null"
             android:src="@drawable/star"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"/>
 
         <ImageButton
             android:id="@+id/imageButton_wrench"
@@ -66,8 +66,8 @@
             android:scaleType="fitCenter"
             android:background="@null"
             android:src="@drawable/wrench"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"/>
     </LinearLayout>
 
     <View
