@@ -70,25 +70,15 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ADD WINE"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:orientation="vertical">
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/imageButton_backarrow"
             android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_height="38dp"
             android:layout_gravity="left"
             android:layout_marginLeft="15dp"
             android:adjustViewBounds="true"
@@ -99,7 +89,23 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="103dp"
+        android:layout_height="24dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_addwine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ADD WINE"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
         android:orientation="vertical">
 
         <ImageButton
@@ -107,6 +113,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:adjustViewBounds="true"
             android:background="@null"
             android:scaleType="fitCenter"
@@ -161,7 +168,7 @@
         android:orientation="vertical">
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/imageButton_accept"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="right"
