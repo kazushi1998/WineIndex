@@ -82,14 +82,30 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="35dp"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="15dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/backarrow" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="103dp"
         android:orientation="vertical">
 
         <ImageButton
             android:id="@+id/imageButton_wineBottle"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:background="@null"
@@ -141,14 +157,19 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="103dp"
         android:orientation="vertical">
 
         <ImageButton
             android:id="@+id/imageButton"
-            android:layout_width="161dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/chatzli" />
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="15dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/accept" />
     </LinearLayout>
 
 </LinearLayout>
