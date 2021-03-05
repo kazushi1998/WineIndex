@@ -24,7 +24,8 @@
         android:layout_columnWeight="1"
         android:layout_marginLeft="10dp"
         android:textColor="#FFFFFF"
-        android:textSize="30dp"/>
+        android:textSize="30dp"
+        android:width="0dp"/>
 
     <TextView
         android:id="@+id/textViewCapital"

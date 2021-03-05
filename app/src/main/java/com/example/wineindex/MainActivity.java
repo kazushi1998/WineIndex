@@ -17,23 +17,23 @@ public class MainActivity extends ListActivity {
 
     private ListView listView;
     private String countryNames[] = {
-            "Sion",
-            "Visp",
-            "Leuk",
-            "Sion"
+            "Visperterminen",
+            "Varen",
+            "Salgesch",
+            "Sierre"
     };
 
     private String capitalNames[] = {
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+            "Europas höchster Weinberg.",
+            "Die Weininsel im Wallis.",
+            "Will wier ine räbe läbe.",
+            "Wasser predigen, Wein trinken."
     };
 
     private Integer imageid[] = {
-            R.drawable.india,
-            R.drawable.china,
-            R.drawable.nepal,
+            R.drawable.bhutan,
+            R.drawable.bhutan,
+            R.drawable.bhutan,
             R.drawable.bhutan
     };
 
