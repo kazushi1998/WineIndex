@@ -31,7 +31,7 @@ public class MainActivity extends ListActivity {
     };
 
     private Integer imageid[] = {
-            R.drawable.bhutan,
+            R.drawable.vy_visperterminen,
             R.drawable.bhutan,
             R.drawable.bhutan,
             R.drawable.bhutan
