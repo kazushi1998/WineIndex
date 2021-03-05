@@ -17,17 +17,17 @@ public class MainActivity extends ListActivity {
 
     private ListView listView;
     private String countryNames[] = {
-            "India",
-            "China",
-            "Nepal",
-            "Bhutan"
+            "Sion",
+            "Visp",
+            "Leuk",
+            "Sion"
     };
 
     private String capitalNames[] = {
-            "Delhi",
-            "Beijing",
-            "Kathmandu",
-            "Thimphu"
+            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
     };
 
     private Integer imageid[] = {
