@@ -82,46 +82,73 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="130dp"
         android:orientation="vertical">
 
         <ImageButton
             android:id="@+id/imageButton_wineBottle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:background="@null"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/winebottle" />
+            android:src="@drawable/winebottlecirclegrey" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="192dp"
+        android:orientation="vertical">
 
         <EditText
             android:id="@+id/edit_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:hint="Name"
-            android:textColorHint="@color/white"/>
+            android:textColorHint="@color/white" />
 
         <EditText
             android:id="@+id/edit_year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:hint="Year"
-            android:textColorHint="@color/white"/>
+            android:textColorHint="@color/white" />
 
         <EditText
             android:id="@+id/edit_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:hint="Price"
-            android:textColorHint="@color/white"/>
+            android:textColorHint="@color/white" />
 
         <EditText
             android:id="@+id/edit_winery"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:hint="Winery"
-            android:textColorHint="@color/white"/>
+            android:textColorHint="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="161dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/chatzli" />
     </LinearLayout>
 
 </LinearLayout>
