@@ -20,7 +20,7 @@ public class MainActivity extends ListActivity {
             "Visperterminen",
             "Varen",
             "Salgesch",
-            "Sierre"
+            "Siders"
     };
 
     private String capitalNames[] = {
@@ -32,9 +32,9 @@ public class MainActivity extends ListActivity {
 
     private Integer imageid[] = {
             R.drawable.vy_visperterminen,
-            R.drawable.bhutan,
-            R.drawable.bhutan,
-            R.drawable.bhutan
+            R.drawable.vy_varen,
+            R.drawable.vy_salgesch,
+            R.drawable.vy_siders
     };
 
     @Override
