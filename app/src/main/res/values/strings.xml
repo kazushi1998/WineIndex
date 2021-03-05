@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">WineIndex</string>
-    <color name="red">#AE3939</color>
-    <color name="darkRed">#811F1F</color>
+
 </resources>
