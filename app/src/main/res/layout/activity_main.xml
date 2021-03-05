@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#AE3939"
+    android:background="@color/red"
     tools:context=".MainActivity">
 
     <ImageView
@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:orientation="horizontal"
-        android:background="#811F1F">
+        android:background="@color/darkRed">
 
         <ImageButton
             android:id="@+id/imageButton_ort"

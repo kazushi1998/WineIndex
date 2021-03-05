@@ -18,48 +18,55 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="28dp"
+        android:background="@drawable/grapessmall"
         android:text="Leonardos | Dos Caprios"
         android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
         android:textColor="@color/white"
-        android:background="@drawable/grapessmall"/>
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="36dp"
+        android:background="@color/darkRed"
         android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/imageButton_ort"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
             android:background="@null"
-            app:srcCompat="@drawable/ort" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/ort" />
 
         <ImageButton
             android:id="@+id/imageButton_star"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
             android:background="@null"
-            app:srcCompat="@drawable/star" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/star" />
 
         <ImageButton
             android:id="@+id/imageButton_wrench"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
             android:background="@null"
-            app:srcCompat="@drawable/wrench" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/wrench" />
 
     </LinearLayout>
 
