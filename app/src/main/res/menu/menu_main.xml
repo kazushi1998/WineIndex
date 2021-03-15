@@ -7,17 +7,12 @@
         android:id="@+id/action_favorites"
         android:orderInCategory="100"
         android:icon="@drawable/star"
-        android:title="Test1"
+        android:title="Favorites"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:icon="@drawable/wrench"
-        android:title="Test1"
+        android:title="Settings"
         app:showAsAction="always" />
-    <item
-        android:id="@+id/action_settings2"
-        android:orderInCategory="100"
-        android:title="Test"
-        app:showAsAction="never" />
 </menu>

@@ -102,13 +102,13 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_favorites) {
-            openActivityFavorites();
-            return true;
-        }
-
-        if (id == R.id.action_settings) {
-            openActivitySettings();
+        switch (id) {
+            case R.id.action_favorites:
+                openActivityFavorites();
+                break;
+            case R.id.action_settings:
+                openActivitySettings();
+                break;
         }
 
         return super.onOptionsItemSelected(item);

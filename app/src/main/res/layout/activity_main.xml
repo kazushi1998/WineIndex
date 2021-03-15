@@ -57,7 +57,7 @@
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="298dp">
+        android:layout_height="328dp">
 
     </ListView>
 
@@ -66,8 +66,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
-        android:layout_marginEnd="15dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_action_add"
