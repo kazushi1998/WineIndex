@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.WineIndex" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#7DDD92</item>
-        <item name="colorPrimaryVariant">#085103</item>
+        <item name="colorPrimary">#AE3939</item>
+        <item name="colorPrimaryVariant">#811F1F</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
