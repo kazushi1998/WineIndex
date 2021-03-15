@@ -2,6 +2,7 @@ package com.example.wineindex;
 
 import android.app.ListActivity;
 import android.content.Intent;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -110,8 +111,13 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_favorites) {
+            openActivityFavorites();
             return true;
+        }
+
+        if (id == R.id.action_settings) {
+            openActivitySettings();
         }
 
         return super.onOptionsItemSelected(item);
@@ -119,6 +125,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openActivityFavorites() {
         Intent intent = new Intent(this, Favorites.class);
+        startActivity(intent);
+    }
+
+    public void openActivitySettings() {
+        Intent intent = new Intent(this, Settings.class);
         startActivity(intent);
     }
 
