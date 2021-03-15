@@ -81,8 +81,7 @@
             android:layout_width="179dp"
             android:layout_height="141dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/winebottlecirclegrey"
-            tools:srcCompat="@drawable/vy_visperterminen" />
+            android:src="@drawable/vy_visperterminen" />
 
         <com.google.android.gms.maps.MapView
             android:id="@+id/mapView5"
