@@ -13,13 +13,13 @@ import com.example.wineindex.R;
 
 // Source: https://java2blog.com/android-custom-listview-with-images-text-example/
 
-public class CustomCountryList extends ArrayAdapter {
+public class VineyardList extends ArrayAdapter {
     private String[] countryNames;
     private String[] capitalNames;
     private Integer[] imageid;
     private Activity context;
 
-    public CustomCountryList(Activity context, String[] countryNames, String[] capitalNames, Integer[] imageid) {
+    public VineyardList(Activity context, String[] countryNames, String[] capitalNames, Integer[] imageid) {
         super(context, R.layout.row_item, countryNames);
         this.context = context;
         this.countryNames = countryNames;
