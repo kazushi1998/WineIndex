@@ -20,7 +20,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
     private ListView listview;
-    private ImageButton buttonFavorites;
     private FloatingActionButton buttonAdd;
 
     private ListView listView;
@@ -64,14 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        buttonFavorites = findViewById(R.id.imageButton_star);
-        buttonFavorites.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivityFavorites();
-            }
-        });
 
         buttonAdd = findViewById(R.id.floatingActionButton);
         buttonAdd.setOnClickListener(new View.OnClickListener() {
