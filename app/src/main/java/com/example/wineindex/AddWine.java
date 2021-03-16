@@ -20,12 +20,12 @@ public class AddWine extends AppCompatActivity {
         fabAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivityMain();
+                openVineyardInfo();
             }
         });
     }
-    public void openActivityMain() {
-        Intent intent = new Intent(this, MainActivity.class);
+    public void openVineyardInfo() {
+        Intent intent = new Intent(this, VineyardInfo.class);
         startActivity(intent);
     }
 }
