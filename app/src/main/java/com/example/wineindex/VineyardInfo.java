@@ -11,7 +11,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class VineyardInfo extends AppCompatActivity {
     private ImageButton buttonBack;
-    private FloatingActionButton fab;
+    private FloatingActionButton fabAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +26,8 @@ public class VineyardInfo extends AppCompatActivity {
             }
         });
 
-        fab = findViewById(R.id.floatingActionButton);
-        fab.setOnClickListener(new View.OnClickListener() {
+        fabAdd = findViewById(R.id.floatingActionButton);
+        fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openActivityAddWine();
