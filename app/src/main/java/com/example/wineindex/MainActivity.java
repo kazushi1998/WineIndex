@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivityAddWine();
             }
         });
 
@@ -129,8 +128,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openActivityAddWine() {
-        Intent intent = new Intent(this, AddWine.class);
-        startActivity(intent);
-    }
 }

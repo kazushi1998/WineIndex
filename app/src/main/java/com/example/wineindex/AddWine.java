@@ -1,14 +1,17 @@
 package com.example.wineindex;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.animation.FloatArrayEvaluator;
+import android.content.Intent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import android.view.MenuItem;
 
 public class AddWine extends AppCompatActivity {
     private FloatingActionButton fabAccept;
@@ -43,4 +46,15 @@ public class AddWine extends AppCompatActivity {
         Intent intent = new Intent(this, VineyardInfo.class);
         startActivity(intent);
     }
+
+        public void openActivityFavorites () {
+            Intent intent = new Intent(this, Favorites.class);
+            startActivity(intent);
+        }
+
+        public void openActivitySettings () {
+            Intent intent = new Intent(this, Settings.class);
+            startActivity(intent);
+        }
+
 }
