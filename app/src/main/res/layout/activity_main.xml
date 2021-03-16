@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/red"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -13,29 +13,17 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        app:titleTextColor="@color/design_default_color_background"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="28dp"
-        android:background="?attr/colorPrimaryVariant"
-        android:text="Leonardos Dos Caprios"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/design_default_color_background" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="match_parent"
         android:layout_height="225dp"
-        android:src="@drawable/leonardo"
         android:background="@drawable/grapestop"
-        />
+        android:src="@drawable/leonardo" />
 
     <View
         android:id="@+id/divider3"
@@ -50,14 +38,14 @@
         android:background="?attr/colorPrimaryVariant"
         android:text="Vineyards"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"/>
+        android:textStyle="bold" />
 
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="328dp">
+        android:layout_height="355dp">
 
     </ListView>
 
