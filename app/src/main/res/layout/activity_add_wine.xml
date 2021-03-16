@@ -75,7 +75,7 @@
         android:orientation="vertical">
 
         <ImageButton
-            android:id="@+id/imageButton_backarrow"
+            android:id="@+id/imageButton_back"
             android:layout_width="40dp"
             android:layout_height="38dp"
             android:layout_gravity="left"
