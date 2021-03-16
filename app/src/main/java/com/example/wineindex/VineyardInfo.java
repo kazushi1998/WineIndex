@@ -24,6 +24,8 @@ public class VineyardInfo extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         buttonBack = findViewById(R.id.imageButton_back);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
