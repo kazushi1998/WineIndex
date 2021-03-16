@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 openActivityVineyardInfo();
-                Toast.makeText(getApplicationContext(), "You Selected " + vineyardName[position] + " as Country", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "You selected " + vineyardName[position] + ".", Toast.LENGTH_SHORT).show();
             }
         });
     }
