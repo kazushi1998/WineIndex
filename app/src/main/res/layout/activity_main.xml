@@ -45,21 +45,19 @@
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="355dp">
-
-    </ListView>
+        android:layout_height="355dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
+        android:layout_gravity="end"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="15dp"
         android:clickable="true"
+        android:contentDescription="Add Vineyard"
         android:focusable="true"
         android:src="@drawable/ic_action_add"
         app:backgroundTint="@color/darkRed" />
-
 
 </LinearLayout>
