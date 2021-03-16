@@ -13,7 +13,6 @@ import android.widget.ImageButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class VineyardInfo extends AppCompatActivity {
-    private ImageButton buttonBack;
     private FloatingActionButton fabAdd;
 
     @Override
@@ -25,14 +24,6 @@ public class VineyardInfo extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        buttonBack = findViewById(R.id.imageButton_back);
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivityMain();
-            }
-        });
 
         fabAdd = findViewById(R.id.floatingActionButton);
         fabAdd.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +50,9 @@ public class VineyardInfo extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         switch (id) {
+            case R.id.action_vineyard:
+                openActivityMain();
+                break;
             case R.id.action_favorites:
                 openActivityFavorites();
                 break;
