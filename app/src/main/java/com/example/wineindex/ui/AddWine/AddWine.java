@@ -1,16 +1,18 @@
-package com.example.wineindex;
+package com.example.wineindex.ui.AddWine;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.animation.FloatArrayEvaluator;
-import android.content.Intent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.widget.ImageButton;
 
+import com.example.wineindex.database.entity.Favorites;
+import com.example.wineindex.ui.MainActivity;
+import com.example.wineindex.R;
+import com.example.wineindex.ui.Settings.Settings;
+import com.example.wineindex.ui.Wines.VineyardInfo;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.view.MenuItem;

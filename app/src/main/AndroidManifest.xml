@@ -9,15 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WineIndex">
-        <activity android:name=".Settings" />
+        <activity android:name=".ui.Settings.Settings" />
         <activity
-            android:name=".VineyardInfo"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".Favorites" />
+            android:name=".ui.Wines.VineyardInfo"
+            android:parentActivityName=".ui.MainActivity" />
         <activity
-            android:name=".AddWine"
-            android:parentActivityName=".VineyardInfo" />
-        <activity android:name=".MainActivity">
+            android:name=".ui.AddWine.AddWine"
+            android:parentActivityName=".ui.Wines.VineyardInfo" />
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

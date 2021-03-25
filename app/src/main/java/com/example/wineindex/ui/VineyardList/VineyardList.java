@@ -1,4 +1,4 @@
-package com.example.wineindex;
+package com.example.wineindex.ui.VineyardList;
 
 import android.app.Activity;
 import android.content.Context;

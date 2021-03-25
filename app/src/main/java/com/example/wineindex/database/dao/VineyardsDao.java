@@ -1,4 +1,4 @@
-package com.example.wineindex;
+package com.example.wineindex.database.dao;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -6,6 +6,8 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
+
+import com.example.wineindex.database.entity.Vineyards;
 
 import java.util.List;
 

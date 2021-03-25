@@ -1,4 +1,4 @@
-package com.example.wineindex;
+package com.example.wineindex.database.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -12,6 +12,14 @@ import androidx.room.PrimaryKey;
 public class Favorites {
     @PrimaryKey
     private int favId;
+
+    public int getFavId() {
+        return favId;
+    }
+
+    public void setFavId(int favId) {
+        this.favId = favId;
+    }
 
     @ColumnInfo(name ="wine_Id")
     public int wine_Id;

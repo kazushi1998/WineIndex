@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/red"
     android:orientation="vertical"
-    tools:context=".VineyardInfo">
+    tools:context=".ui.Wines.VineyardInfo">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

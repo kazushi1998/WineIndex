@@ -1,6 +1,5 @@
-package com.example.wineindex;
+package com.example.wineindex.ui;
 
-import android.app.ListActivity;
 import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,10 +10,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.wineindex.R;
+import com.example.wineindex.database.entity.Favorites;
+import com.example.wineindex.ui.Settings.Settings;
+import com.example.wineindex.ui.Wines.VineyardInfo;
+import com.example.wineindex.ui.VineyardList.VineyardList;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
