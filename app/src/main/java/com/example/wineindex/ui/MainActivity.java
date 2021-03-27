@@ -25,9 +25,11 @@ import com.example.wineindex.database.entity.VineyardEntity;
 import com.example.wineindex.ui.Settings.Settings;
 import com.example.wineindex.ui.Wines.VineyardInfo;
 import com.example.wineindex.adapter.VineyardList;
+import com.example.wineindex.util.RecyclerViewItemClickListener;
 import com.example.wineindex.viewmodel.VineyardListViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -85,9 +87,23 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.vineyardsRecyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), LinearLayoutManager.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
+
+        vineyards = new ArrayList<>();
+        recyclerAdapter = new RecyclerAdapter(new RecyclerViewItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                System.out.println("CLICK");
+            }
+
+            @Override
+            public void onItemLongClick(View v, int position) {
+                System.out.println("LONG CLICK");
+            }
+        });
 
         buttonAdd = findViewById(R.id.floatingActionButton);
         buttonAdd.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /*
         listView = (ListView) findViewById(android.R.id.list);
 
         VineyardList vineyardList = new VineyardList(this, vineyardName, vineyardDescription, vineyardPicture);
@@ -108,16 +125,18 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "You selected " + vineyardName[position] + ".", Toast.LENGTH_SHORT).show();
             }
         });
-
+        */
 
         VineyardListViewModel.Factory factory = new VineyardListViewModel.Factory(getApplication());
         viewModel = ViewModelProviders.of(this, factory).get(VineyardListViewModel.class);
         viewModel.getVineyards().observe(this, vineyardEntities -> {
             if(vineyardEntities != null) {
                 vineyards = vineyardEntities;
-                //recyclerAdapter.setData(vineyards);
+                recyclerAdapter.setData(vineyards);
+                System.out.println(vineyards.get(0).getName());
             }
         });
+
         recyclerView.setAdapter(recyclerAdapter);
     }
 
