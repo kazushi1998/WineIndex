@@ -1,5 +1,6 @@
 package com.example.wineindex.database.entity;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -23,4 +24,9 @@ public class Favorites {
 
     @ColumnInfo(name ="wine_Id")
     public int wine_Id;
+
+    public Favorites(@NonNull int favId, int wine_Id) {
+      this.favId = favId;
+      this.wine_Id = wine_Id;
+    }
 }

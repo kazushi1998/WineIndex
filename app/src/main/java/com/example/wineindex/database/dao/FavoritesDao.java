@@ -1,5 +1,7 @@
 package com.example.wineindex.database.dao;
 
+import android.database.sqlite.SQLiteConstraintException;
+
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -8,6 +10,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.wineindex.database.entity.Favorites;
+import com.example.wineindex.database.entity.Vineyards;
 
 import java.util.List;
 
@@ -18,6 +21,9 @@ public interface FavoritesDao {
 
     @Query("SELECT * FROM favorites WHERE wine_Id LIKE:id")
     Favorites findById(int id);
+
+    @Insert
+    long insert(Favorites favorites) throws SQLiteConstraintException;
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertFavorite(Favorites favorites);

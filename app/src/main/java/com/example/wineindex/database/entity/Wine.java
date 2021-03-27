@@ -1,5 +1,6 @@
 package com.example.wineindex.database.entity;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -38,4 +39,11 @@ public class Wine {
 
     @ColumnInfo(name = "Winery")
     private String winery;
+
+    public Wine(@NonNull int wineId, String name, String winery) {
+        this.wineId=wineId;
+        this.name=name;
+        this.winery=winery;
+
+    }
 }
