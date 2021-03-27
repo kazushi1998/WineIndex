@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 
-import com.example.wineindex.database.entity.Favorites;
+import com.example.wineindex.database.entity.FavoriteEntity;
 import com.example.wineindex.ui.MainActivity;
 import com.example.wineindex.R;
 import com.example.wineindex.ui.Settings.Settings;
@@ -84,7 +84,7 @@ public class AddWine extends AppCompatActivity {
     }
 
     public void openActivityFavorites() {
-        Intent intent = new Intent(this, Favorites.class);
+        Intent intent = new Intent(this, FavoriteEntity.class);
         startActivity(intent);
     }
 

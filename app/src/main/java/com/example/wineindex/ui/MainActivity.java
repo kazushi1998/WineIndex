@@ -14,16 +14,23 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.wineindex.R;
-import com.example.wineindex.database.entity.Favorites;
+import com.example.wineindex.database.entity.FavoriteEntity;
+import com.example.wineindex.database.entity.VineyardEntity;
 import com.example.wineindex.ui.Settings.Settings;
 import com.example.wineindex.ui.Wines.VineyardInfo;
 import com.example.wineindex.database.adapter.VineyardList;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
     private ListView listview;
     private FloatingActionButton buttonAdd;
+
+    private List<VineyardEntity> vineyards;
+    //private RecyclerAdapter recyclerAdapter;
+    //private VineyardsViewModel;
 
     private ListView listView;
     private String vineyardName[] = {
@@ -62,8 +69,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
+        setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -76,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(android.R.id.list);
 
-        // For populating list data
         VineyardList vineyardList = new VineyardList(this, vineyardName, vineyardDescription, vineyardPicture);
         listView.setAdapter(vineyardList);
 
@@ -121,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openActivityFavorites() {
-        Intent intent = new Intent(this, Favorites.class);
+        Intent intent = new Intent(this, FavoriteEntity.class);
         startActivity(intent);
     }
 

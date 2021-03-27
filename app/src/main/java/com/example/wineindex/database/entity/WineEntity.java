@@ -6,7 +6,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class Wine {
+public class WineEntity {
     @PrimaryKey
     private int wineId;
 
@@ -40,7 +40,7 @@ public class Wine {
     @ColumnInfo(name = "Winery")
     private String winery;
 
-    public Wine(@NonNull int wineId, String name, String winery) {
+    public WineEntity(@NonNull int wineId, String name, String winery) {
         this.wineId=wineId;
         this.name=name;
         this.winery=winery;

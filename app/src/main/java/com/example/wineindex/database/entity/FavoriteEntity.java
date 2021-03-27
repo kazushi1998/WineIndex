@@ -6,11 +6,11 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(foreignKeys = @ForeignKey(entity = Wine.class,
+@Entity(foreignKeys = @ForeignKey(entity = WineEntity.class,
                                   parentColumns = "wineId",
                                   childColumns = "wine_Id" ))
 
-public class Favorites {
+public class FavoriteEntity {
     @PrimaryKey
     private int favId;
 
@@ -25,7 +25,7 @@ public class Favorites {
     @ColumnInfo(name ="wine_Id")
     public int wine_Id;
 
-    public Favorites(@NonNull int favId, int wine_Id) {
+    public FavoriteEntity(@NonNull int favId, int wine_Id) {
       this.favId = favId;
       this.wine_Id = wine_Id;
     }

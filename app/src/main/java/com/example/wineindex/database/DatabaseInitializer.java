@@ -3,9 +3,9 @@ package com.example.wineindex.database;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.wineindex.database.entity.Favorites;
-import com.example.wineindex.database.entity.Vineyards;
-import com.example.wineindex.database.entity.Wine;
+import com.example.wineindex.database.entity.FavoriteEntity;
+import com.example.wineindex.database.entity.VineyardEntity;
+import com.example.wineindex.database.entity.WineEntity;
 
 public class DatabaseInitializer {
 
@@ -19,19 +19,19 @@ public class DatabaseInitializer {
 
     private static void addFavorites(final AppDataBase db, int id, int wid){
 
-        Favorites favorites = new Favorites(id,wid);
-        db.favoritesDao().insert(favorites);
+        FavoriteEntity favorite = new FavoriteEntity(id,wid);
+        db.favoritesDao().insert(favorite);
     }
 
     private static void addVineyard(final AppDataBase db, final int id, final String vineyardname, final String info){
 
-        Vineyards vineyard = new Vineyards(id,vineyardname,info);
+        VineyardEntity vineyard = new VineyardEntity(id,vineyardname,info);
         db.vineyardsDao().insert(vineyard);
     }
 
     private static void addWine(final AppDataBase db, int id, String name, String winery){
 
-        Wine wine = new Wine(id,name,winery);
+        WineEntity wine = new WineEntity(id,name,winery);
         db.wineDao().insert(wine);
     }
 

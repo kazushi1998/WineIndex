@@ -6,9 +6,9 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class Vineyards {
+public class VineyardEntity {
     @PrimaryKey
-   private int vineyardsId;
+    private int vineyardsId;
 
     public int getVineyardsId() {
         return vineyardsId;
@@ -39,7 +39,7 @@ public class Vineyards {
         this.name = name;
     }
 
-    public Vineyards(@NonNull int vineyardsId, String name, String info) {
+    public VineyardEntity(@NonNull int vineyardsId, String name, String info) {
         this.vineyardsId = vineyardsId;
         this.name = name;
         this.info = info;

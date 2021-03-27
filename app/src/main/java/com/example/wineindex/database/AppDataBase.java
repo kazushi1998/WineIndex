@@ -14,13 +14,13 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.wineindex.database.dao.FavoritesDao;
 import com.example.wineindex.database.dao.VineyardsDao;
 import com.example.wineindex.database.dao.WineDao;
-import com.example.wineindex.database.entity.Favorites;
-import com.example.wineindex.database.entity.Vineyards;
-import com.example.wineindex.database.entity.Wine;
+import com.example.wineindex.database.entity.FavoriteEntity;
+import com.example.wineindex.database.entity.VineyardEntity;
+import com.example.wineindex.database.entity.WineEntity;
 
 import java.util.concurrent.Executors;
 
-@Database(entities = {Favorites.class, Vineyards.class, Wine.class}, version =1)
+@Database(entities = {FavoriteEntity.class, VineyardEntity.class, WineEntity.class}, version =1)
 
 public abstract class AppDataBase extends RoomDatabase {
 

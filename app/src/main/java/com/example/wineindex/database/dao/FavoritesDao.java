@@ -9,31 +9,30 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.wineindex.database.entity.Favorites;
-import com.example.wineindex.database.entity.Vineyards;
+import com.example.wineindex.database.entity.FavoriteEntity;
 
 import java.util.List;
 
 @Dao
 public interface FavoritesDao {
-    @Query("SELECT * FROM favorites")
-    List<Favorites> getAll();
+    @Query("SELECT * FROM FavoriteEntity")
+    List<FavoriteEntity> getAll();
 
-    @Query("SELECT * FROM favorites WHERE wine_Id LIKE:id")
-    Favorites findById(int id);
+    @Query("SELECT * FROM FavoriteEntity WHERE wine_Id LIKE:id")
+    FavoriteEntity findById(int id);
 
     @Insert
-    long insert(Favorites favorites) throws SQLiteConstraintException;
+    long insert(FavoriteEntity favorite) throws SQLiteConstraintException;
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertFavorite(Favorites favorites);
+    void insertFavorite(FavoriteEntity favorite);
 
     @Update
-    void updateFavorite(Favorites favorites);
+    void updateFavorite(FavoriteEntity favorite);
 
     @Delete
-    void deleteFavorite(Favorites favorites);
+    void deleteFavorite(FavoriteEntity favorite);
 
-    @Query("DELETE FROM favorites")
+    @Query("DELETE FROM FavoriteEntity")
     void deleteAll();
 }

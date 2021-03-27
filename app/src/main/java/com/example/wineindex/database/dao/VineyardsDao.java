@@ -9,30 +9,30 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.wineindex.database.entity.Vineyards;
+import com.example.wineindex.database.entity.VineyardEntity;
 
 import java.util.List;
 
 @Dao
 public interface VineyardsDao {
-    @Query("SELECT * FROM vineyards")
-    List<Vineyards> getAll();
+    @Query("SELECT * FROM VineyardEntity")
+    List<VineyardEntity> getAll();
 
-    @Query("SELECT * FROM vineyards WHERE VineyardName LIKE:name")
-    Vineyards findByName(String name);
+    @Query("SELECT * FROM VineyardEntity WHERE VineyardName LIKE:name")
+    VineyardEntity findByName(String name);
 
     @Insert
-    long insert(Vineyards vineyards) throws SQLiteConstraintException;
+    long insert(VineyardEntity vineyards) throws SQLiteConstraintException;
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertVineyard(Vineyards vineyards);
+    void insertVineyard(VineyardEntity vineyards);
 
     @Update
-    void updateVineyards(Vineyards vineyards);
+    void updateVineyards(VineyardEntity vineyards);
 
     @Delete
-    void deleteVineyard(Vineyards vineyards);
+    void deleteVineyard(VineyardEntity vineyards);
 
-    @Query("DELETE FROM vineyards")
+    @Query("DELETE FROM VineyardEntity")
     void deleteAll();
 }
