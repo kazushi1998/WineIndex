@@ -24,14 +24,11 @@ public interface WineDao {
     @Insert
     long insert(WineEntity wine) throws SQLiteConstraintException;
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertWine(WineEntity wine);
-
     @Update
-    void updateWine(WineEntity wine);
+    void update(WineEntity wine);
 
     @Delete
-    void deleteWine(WineEntity wine);
+    void delete(WineEntity wine);
 
     @Query("DELETE FROM WineEntity")
     void deleteAll();

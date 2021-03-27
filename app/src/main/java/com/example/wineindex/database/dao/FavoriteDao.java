@@ -14,7 +14,7 @@ import com.example.wineindex.database.entity.FavoriteEntity;
 import java.util.List;
 
 @Dao
-public interface FavoritesDao {
+public interface FavoriteDao {
     @Query("SELECT * FROM FavoriteEntity")
     List<FavoriteEntity> getAll();
 
@@ -24,14 +24,11 @@ public interface FavoritesDao {
     @Insert
     long insert(FavoriteEntity favorite) throws SQLiteConstraintException;
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertFavorite(FavoriteEntity favorite);
-
     @Update
-    void updateFavorite(FavoriteEntity favorite);
+    void update(FavoriteEntity favorite);
 
     @Delete
-    void deleteFavorite(FavoriteEntity favorite);
+    void delete(FavoriteEntity favorite);
 
     @Query("DELETE FROM FavoriteEntity")
     void deleteAll();

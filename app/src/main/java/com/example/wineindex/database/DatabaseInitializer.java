@@ -20,13 +20,13 @@ public class DatabaseInitializer {
     private static void addFavorites(final AppDataBase db, int id, int wid){
 
         FavoriteEntity favorite = new FavoriteEntity(id,wid);
-        db.favoritesDao().insert(favorite);
+        db.favoriteDao().insert(favorite);
     }
 
     private static void addVineyard(final AppDataBase db, final int id, final String vineyardname, final String info){
 
         VineyardEntity vineyard = new VineyardEntity(id,vineyardname,info);
-        db.vineyardsDao().insert(vineyard);
+        db.vineyardDao().insert(vineyard);
     }
 
     private static void addWine(final AppDataBase db, int id, String name, String winery){
@@ -38,7 +38,7 @@ public class DatabaseInitializer {
 
     private static void populateWithTestData(AppDataBase db){
        //resetten
-        db.favoritesDao().deleteAll();
+        db.favoriteDao().deleteAll();
         /**
          * Hier kommen die anfänglichen Favoriten rein falls es welche gibt.
          */
@@ -53,7 +53,7 @@ public class DatabaseInitializer {
         }
 
         //resetten
-        db.vineyardsDao().deleteAll();
+        db.vineyardDao().deleteAll();
 
         addVineyard(db,
                 1, "Visperterminen", "Europas höchster Weinberg.");

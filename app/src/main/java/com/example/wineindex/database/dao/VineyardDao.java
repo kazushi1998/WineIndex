@@ -2,6 +2,7 @@ package com.example.wineindex.database.dao;
 
 import android.database.sqlite.SQLiteConstraintException;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -14,24 +15,21 @@ import com.example.wineindex.database.entity.VineyardEntity;
 import java.util.List;
 
 @Dao
-public interface VineyardsDao {
+public interface VineyardDao {
     @Query("SELECT * FROM VineyardEntity")
-    List<VineyardEntity> getAll();
+    LiveData<List<VineyardEntity>> getAll();
 
     @Query("SELECT * FROM VineyardEntity WHERE VineyardName LIKE:name")
-    VineyardEntity findByName(String name);
+    LiveData<VineyardEntity> findByName(String name);
 
     @Insert
     long insert(VineyardEntity vineyards) throws SQLiteConstraintException;
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertVineyard(VineyardEntity vineyards);
-
     @Update
-    void updateVineyards(VineyardEntity vineyards);
+    void update(VineyardEntity vineyard);
 
     @Delete
-    void deleteVineyard(VineyardEntity vineyards);
+    void delete(VineyardEntity vineyard);
 
     @Query("DELETE FROM VineyardEntity")
     void deleteAll();

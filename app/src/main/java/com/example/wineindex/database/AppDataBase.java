@@ -11,8 +11,8 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.example.wineindex.database.dao.FavoritesDao;
-import com.example.wineindex.database.dao.VineyardsDao;
+import com.example.wineindex.database.dao.FavoriteDao;
+import com.example.wineindex.database.dao.VineyardDao;
 import com.example.wineindex.database.dao.WineDao;
 import com.example.wineindex.database.entity.FavoriteEntity;
 import com.example.wineindex.database.entity.VineyardEntity;
@@ -31,9 +31,9 @@ public abstract class AppDataBase extends RoomDatabase {
     private static final String DATABASE_NAME = "wineIndex-database";
 
 
-    public abstract FavoritesDao favoritesDao();
+    public abstract FavoriteDao favoriteDao();
 
-    public abstract VineyardsDao vineyardsDao();
+    public abstract VineyardDao vineyardDao();
 
     public abstract WineDao wineDao();
 
@@ -77,8 +77,8 @@ public abstract class AppDataBase extends RoomDatabase {
         Executors.newSingleThreadExecutor().execute(() -> {
             database.runInTransaction(() -> {
                 Log.i(TAG, "Wipe database.");
-                database.vineyardsDao().deleteAll();
-                database.favoritesDao().deleteAll();
+                database.vineyardDao().deleteAll();
+                database.favoriteDao().deleteAll();
                 database.wineDao().deleteAll();
 
                 DatabaseInitializer.populateDatabase(database);
