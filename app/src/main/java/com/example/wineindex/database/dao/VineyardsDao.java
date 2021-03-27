@@ -1,5 +1,7 @@
 package com.example.wineindex.database.dao;
 
+import android.database.sqlite.SQLiteConstraintException;
+
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -19,6 +21,9 @@ public interface VineyardsDao {
     @Query("SELECT * FROM vineyards WHERE VineyardName LIKE:name")
     Vineyards findByName(String name);
 
+    @Insert
+    long insert(Vineyards vineyards) throws SQLiteConstraintException;
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertVineyard(Vineyards vineyards);
 
@@ -27,4 +32,7 @@ public interface VineyardsDao {
 
     @Delete
     void deleteVineyard(Vineyards vineyards);
+
+    @Query("DELETE FROM vineyards")
+    void deleteAll();
 }

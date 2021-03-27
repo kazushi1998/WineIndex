@@ -27,4 +27,7 @@ public interface WineDao {
 
     @Delete
     void deleteWine(Wine wine);
+
+    @Query("DELETE FROM wine")
+    void deleteAll();
 }
