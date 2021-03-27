@@ -17,7 +17,7 @@ import com.example.wineindex.R;
 import com.example.wineindex.database.entity.Favorites;
 import com.example.wineindex.ui.Settings.Settings;
 import com.example.wineindex.ui.Wines.VineyardInfo;
-import com.example.wineindex.ui.VineyardList.VineyardList;
+import com.example.wineindex.database.adapter.VineyardList;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 

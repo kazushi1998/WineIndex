@@ -87,12 +87,6 @@ public class DatabaseInitializer {
     }
 
 
-
-
-
-
-
-
     private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
 
         private final AppDataBase database;

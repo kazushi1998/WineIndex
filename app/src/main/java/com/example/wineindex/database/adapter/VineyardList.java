@@ -1,4 +1,4 @@
-package com.example.wineindex.ui.VineyardList;
+package com.example.wineindex.database.adapter;
 
 import android.app.Activity;
 import android.content.Context;
