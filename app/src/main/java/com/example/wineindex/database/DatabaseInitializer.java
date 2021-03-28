@@ -50,7 +50,7 @@ public class DatabaseInitializer {
         //resetten
         db.vineyardDao().deleteAll();
 
-        addVineyard(db,1, "Visperterminen", "Europas höchster Weinberg.");
+        addVineyard(db,1, "Fieschperterminen", "Europas höchster Weinberg.");
         addVineyard(db,2, "Varen","Die Weininsel im Wallis.");
         addVineyard(db,3, "Salgesch","Will wier ine räbe läbe.");
         addVineyard(db,4, "Siders","Wasser predigen, Wein trinken.");

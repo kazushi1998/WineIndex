@@ -4,6 +4,7 @@ import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,10 +14,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.wineindex.R;
 import com.example.wineindex.adapter.RecyclerAdapter;
+import com.example.wineindex.adapter.VineyardList;
 import com.example.wineindex.database.AppDataBase;
 import com.example.wineindex.database.DatabaseInitializer;
 import com.example.wineindex.database.entity.VineyardEntity;
