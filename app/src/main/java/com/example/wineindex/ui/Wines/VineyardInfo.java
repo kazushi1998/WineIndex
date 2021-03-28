@@ -2,22 +2,32 @@ package com.example.wineindex.ui.Wines;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.wineindex.R;
 import com.example.wineindex.database.entity.FavoriteEntity;
+import com.example.wineindex.database.entity.VineyardEntity;
 import com.example.wineindex.ui.Settings.Settings;
 import com.example.wineindex.ui.AddWine.AddWine;
 import com.example.wineindex.ui.MainActivity;
+import com.example.wineindex.viewmodel.VineyardViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class VineyardInfo extends AppCompatActivity {
     private FloatingActionButton fabAdd;
+    private VineyardViewModel viewModel;
+
+    private VineyardEntity vineyard;
+
+    private TextView tvVineyardName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +38,18 @@ public class VineyardInfo extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        String vineyardName = getIntent().getStringExtra("vineyardName");
+
+        tvVineyardName = findViewById(R.id.textView11);
+
+        VineyardViewModel.Factory factory = new VineyardViewModel.Factory(getApplication(), vineyardName);
+        viewModel = ViewModelProviders.of(this,factory).get(VineyardViewModel.class);
+        viewModel.getVineyard().observe(this,vineyardEntity -> {
+            if(vineyardEntity != null){
+                vineyard = vineyardEntity;
+                updateContent();
+            }
+        });
         fabAdd = findViewById(R.id.floatingActionButton);
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +89,8 @@ public class VineyardInfo extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+
     public void openActivityFavorites() {
         Intent intent = new Intent(this, FavoriteEntity.class);
         startActivity(intent);
@@ -85,6 +109,12 @@ public class VineyardInfo extends AppCompatActivity {
     public void openActivityAddWine() {
         Intent intent = new Intent(this, AddWine.class);
         startActivity(intent);
+    }
+    private void updateContent() {
+        if (vineyard != null) {
+            tvVineyardName.setText(vineyard.getName());
+
+        }
     }
 
 }

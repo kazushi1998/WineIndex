@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,6 +37,9 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
+
     private ListView listview;
     private FloatingActionButton buttonAdd;
 
@@ -100,12 +104,22 @@ public class MainActivity extends AppCompatActivity {
         recyclerAdapter = new RecyclerAdapter(new RecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
-                System.out.println("CLICK");
+                Log.d(TAG, "clicked position:" + position);
+                Log.d(TAG, "clicked on: " + vineyards.get(position).toString());
+
+                Intent intent = new Intent(MainActivity.this, VineyardInfo.class);
+                intent.setFlags(
+                        Intent.FLAG_ACTIVITY_NO_ANIMATION |
+                                Intent.FLAG_ACTIVITY_NO_HISTORY
+                );
+                intent.putExtra("vineyardName", vineyards.get(position).getName());
+                startActivity(intent);
             }
 
             @Override
             public void onItemLongClick(View v, int position) {
-                System.out.println("LONG CLICK");
+                Log.d(TAG, "longClicked position:" + position);
+                Log.d(TAG, "longClicked on: " + vineyards.get(position).toString());
             }
         });
 
@@ -182,11 +196,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void openActivitySettings() {
         Intent intent = new Intent(this, Settings.class);
-        startActivity(intent);
-    }
-
-    public void openActivityVineyardInfo() {
-        Intent intent = new Intent(this, VineyardInfo.class);
         startActivity(intent);
     }
 

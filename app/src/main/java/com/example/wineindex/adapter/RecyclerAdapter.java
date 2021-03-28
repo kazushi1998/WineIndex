@@ -47,7 +47,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull RecyclerAdapter.ViewHolder holder, int position) {
         VineyardEntity item = data.get(position);
-        holder.textView.setText(item.toString());
+        holder.textView.setText(item.getName());
     }
 
     @Override
