@@ -40,11 +40,6 @@ public class DatabaseInitializer {
         System.out.println("Ich werde benutzt");
        //resetten
         db.favoriteDao().deleteAll();
-        /**
-         * Hier kommen die anfänglichen Favoriten rein falls es welche gibt.
-         */
-        //Testfavorite
-        addFavorites(db,1,1 );
 
         try{
             Thread.sleep(1000);
@@ -72,8 +67,7 @@ public class DatabaseInitializer {
          * Hier kommen die Weine rein, via addWine die am Anfang da sein sollen
          */
         //Testwein
-        addWine(db,
-                1,"Geile Wein","Winery Jean-pierre");
+        addWine(db,1,"Geile Wein","Winery Jean-pierre");
 
         try{
             Thread.sleep(1000);
