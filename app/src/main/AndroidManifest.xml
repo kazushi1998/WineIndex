@@ -16,6 +16,8 @@
         <activity
             android:name=".ui.AddWine.AddWine"
             android:parentActivityName=".ui.Wines.VineyardInfo" />
+        <activity android:name=".ui.Favorites.Favorites"
+            android:parentActivityName="ui.Wines.VineyardInfo"/>
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

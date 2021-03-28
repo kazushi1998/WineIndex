@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.wineindex.R;
 
-public class FavoritesUI extends AppCompatActivity {
+public class Favorites extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

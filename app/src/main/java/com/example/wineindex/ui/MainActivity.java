@@ -1,66 +1,32 @@
 package com.example.wineindex.ui;
 
-import android.content.BroadcastReceiver;
-import android.content.ComponentName;
-import android.content.ContentResolver;
-import android.content.Context;
 import android.content.Intent;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.IntentFilter;
-import android.content.IntentSender;
-import android.content.ServiceConnection;
-import android.content.SharedPreferences;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.content.res.AssetManager;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.database.DatabaseErrorHandler;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.UserHandle;
-import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.wineindex.R;
 import com.example.wineindex.adapter.RecyclerAdapter;
 import com.example.wineindex.database.AppDataBase;
 import com.example.wineindex.database.DatabaseInitializer;
-import com.example.wineindex.database.entity.FavoriteEntity;
 import com.example.wineindex.database.entity.VineyardEntity;
+import com.example.wineindex.ui.Favorites.Favorites;
 import com.example.wineindex.ui.Settings.Settings;
 import com.example.wineindex.ui.Wines.VineyardInfo;
-import com.example.wineindex.adapter.VineyardList;
 import com.example.wineindex.util.RecyclerViewItemClickListener;
 import com.example.wineindex.viewmodel.VineyardListViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -170,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println(vineyards.get(0).getName());
             }
         });
-        viewModel.getVineyards();
 
         recyclerView.setAdapter(recyclerAdapter);
     }
@@ -207,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openActivityFavorites() {
-        Intent intent = new Intent(this, FavoriteEntity.class);
+        Intent intent = new Intent(this, Favorites.class);
         startActivity(intent);
     }
 
