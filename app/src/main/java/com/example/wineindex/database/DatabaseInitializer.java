@@ -44,8 +44,7 @@ public class DatabaseInitializer {
          * Hier kommen die anfänglichen Favoriten rein falls es welche gibt.
          */
         //Testfavorite
-        addFavorites(db,
-               1,1 );
+        addFavorites(db,1,1 );
 
         try{
             Thread.sleep(1000);
