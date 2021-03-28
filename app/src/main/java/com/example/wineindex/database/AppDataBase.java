@@ -56,6 +56,7 @@ public abstract class AppDataBase extends RoomDatabase {
      */
 
     private static AppDataBase buildDatabase(final Context appContext) {
+        System.out.println("Datenbank wird erstellt");
         Log.i(TAG, "Database will be initialized.");
         return Room.databaseBuilder(appContext, AppDataBase.class, DATABASE_NAME)
                 .addCallback(new Callback() {
@@ -64,7 +65,8 @@ public abstract class AppDataBase extends RoomDatabase {
                         super.onCreate(db);
                         Executors.newSingleThreadExecutor().execute(() -> {
                             AppDataBase database = AppDataBase.getInstance(appContext);
-                            initializeDemoData(database);
+                            System.out.println("Datenbank wird mit Testdaten gefüllt");
+                            DatabaseInitializer.populateDatabase(database);
                             // notify that the database was created and it's ready to be used
                             database.setDatabaseCreated();
                         });
@@ -73,6 +75,7 @@ public abstract class AppDataBase extends RoomDatabase {
     }
 
 
+    /*
     public static void initializeDemoData(final AppDataBase database) {
         Executors.newSingleThreadExecutor().execute(() -> {
             database.runInTransaction(() -> {
@@ -85,7 +88,7 @@ public abstract class AppDataBase extends RoomDatabase {
             });
         });
     }
-
+*/
     /**
     *Prüfung Datenbank da oder no nüt
      */

@@ -19,6 +19,7 @@ public class CreateVineyard extends AsyncTask<VineyardEntity, Void, Void> {
 
     @Override
     protected Void doInBackground(VineyardEntity... vineyards) {
+        System.out.println("doInBackground");
         try {
             for (VineyardEntity vineyard : vineyards) {
                 dataBase.vineyardDao().insert(vineyard);

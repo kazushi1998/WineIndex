@@ -37,6 +37,7 @@ public class DatabaseInitializer {
 
 
     private static void populateWithTestData(AppDataBase db){
+        System.out.println("Ich werde benutzt");
        //resetten
         db.favoriteDao().deleteAll();
         /**
