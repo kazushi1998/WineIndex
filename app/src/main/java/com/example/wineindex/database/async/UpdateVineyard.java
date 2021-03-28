@@ -7,12 +7,12 @@ import com.example.wineindex.database.AppDataBase;
 import com.example.wineindex.database.entity.VineyardEntity;
 import com.example.wineindex.util.OnAsyncEventListener;
 
-public class UpdateClient extends AsyncTask<VineyardEntity, Void, Void> {
+public class UpdateVineyard extends AsyncTask<VineyardEntity, Void, Void> {
     private AppDataBase dataBase;
     private OnAsyncEventListener callback;
     private Exception exception;
 
-    public UpdateClient(Context context, OnAsyncEventListener callback) {
+    public UpdateVineyard(Context context, OnAsyncEventListener callback) {
         dataBase = AppDataBase.getInstance(context);
         this.callback = callback;
     }

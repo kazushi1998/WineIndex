@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData;
 import com.example.wineindex.database.AppDataBase;
 import com.example.wineindex.database.async.CreateVineyard;
 import com.example.wineindex.database.async.DeleteVineyard;
-import com.example.wineindex.database.async.UpdateClient;
+import com.example.wineindex.database.async.UpdateVineyard;
 import com.example.wineindex.database.entity.VineyardEntity;
 import com.example.wineindex.util.OnAsyncEventListener;
 
@@ -42,7 +42,7 @@ public class VineyardRepository {
     }
 
     public void update(final VineyardEntity vineyard, OnAsyncEventListener callback, Context context) {
-        new UpdateClient(context, callback).execute(vineyard);
+        new UpdateVineyard(context, callback).execute(vineyard);
     }
 
     public void delete(final VineyardEntity vineyard, OnAsyncEventListener callback, Context context) {

@@ -23,7 +23,7 @@ public interface VineyardDao {
     LiveData<VineyardEntity> findByName(String name);
 
     @Insert
-    long insert(VineyardEntity vineyards) throws SQLiteConstraintException;
+    long insert(VineyardEntity vineyard) throws SQLiteConstraintException;
 
     @Update
     void update(VineyardEntity vineyard);
