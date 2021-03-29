@@ -20,7 +20,7 @@ public class VineyardListViewModel extends AndroidViewModel {
     private VineyardRepository repository;
     private Context applicationContext;
     private final MediatorLiveData<List<VineyardEntity>> observableVineyards;
-
+    public LiveData<List<VineyardEntity>> vineyards;
 
     public VineyardListViewModel(@NonNull Application application, VineyardRepository vineyardRepository) {
         super(application);

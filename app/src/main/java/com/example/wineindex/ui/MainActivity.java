@@ -25,6 +25,7 @@ import com.example.wineindex.adapter.VineyardList;
 import com.example.wineindex.database.AppDataBase;
 import com.example.wineindex.database.DatabaseInitializer;
 import com.example.wineindex.database.entity.VineyardEntity;
+import com.example.wineindex.database.repository.VineyardRepository;
 import com.example.wineindex.ui.Favorites.Favorites;
 import com.example.wineindex.ui.Settings.Settings;
 import com.example.wineindex.ui.Wines.VineyardInfo;
@@ -40,41 +41,29 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
-    private ListView listview;
     private FloatingActionButton buttonAdd;
 
     private List<VineyardEntity> vineyards;
     private RecyclerAdapter recyclerAdapter;
     private VineyardListViewModel viewModel;
 
+    private VineyardList vineyardList;
     private ListView listView;
     private String vineyardName[] = {
-            "Visperterminen",
-            "Varen",
-            "Salgesch",
-            "Siders",
-            "Visperterminen",
-            "Varen",
-            "Salgesch",
-            "Siders"
+            "0Visperterminen",
+            "0Varen",
+            "0Salgesch",
+            "0Siders"
     };
 
     private String vineyardDescription[] = {
-            "Europas höchster Weinberg.",
-            "Die Weininsel im Wallis.",
-            "Will wier ine räbe läbe.",
-            "Wasser predigen, Wein trinken.",
-            "Europas höchster Weinberg.",
-            "Die Weininsel im Wallis.",
-            "Will wier ine räbe läbe.",
-            "Wasser predigen, Wein trinken."
+            "0Europas höchster Weinberg.",
+            "0Die Weininsel im Wallis.",
+            "0Will wier ine räbe läbe.",
+            "0Wasser predigen, Wein trinken."
     };
 
     private Integer vineyardPicture[] = {
-            R.drawable.vy_visperterminen,
-            R.drawable.vy_varen,
-            R.drawable.vy_salgesch,
-            R.drawable.vy_siders,
             R.drawable.vy_visperterminen,
             R.drawable.vy_varen,
             R.drawable.vy_salgesch,
@@ -104,6 +93,10 @@ public class MainActivity extends AppCompatActivity {
         recyclerAdapter = new RecyclerAdapter(new RecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
+                if(position < 0) {
+                    position = 0;
+                }
+
                 Log.d(TAG, "clicked position:" + position);
                 Log.d(TAG, "clicked on: " + vineyards.get(position).toString());
 
@@ -130,20 +123,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*
+/*
         listView = (ListView) findViewById(android.R.id.list);
 
-        VineyardList vineyardList = new VineyardList(this, vineyardName, vineyardDescription, vineyardPicture);
+        vineyardList = new VineyardList(this, vineyardName, vineyardDescription, vineyardPicture);
         listView.setAdapter(vineyardList);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                openActivityVineyardInfo();
-                Toast.makeText(getApplicationContext(), "You selected " + vineyardName[position] + ".", Toast.LENGTH_SHORT).show();
+                */
+/*openActivityVineyardInfo();
+                Toast.makeText(getApplicationContext(), "You selected " + vineyards.get(position).getName() + ".", Toast.LENGTH_SHORT).show();*//*
+
+
+                Log.d(TAG, "clicked position:" + position);
+                Log.d(TAG, "clicked on: " + vineyards.get(position).toString());
+
+                Intent intent = new Intent(MainActivity.this, VineyardInfo.class);
+                intent.setFlags(
+                        Intent.FLAG_ACTIVITY_NO_ANIMATION |
+                                Intent.FLAG_ACTIVITY_NO_HISTORY
+                );
+                intent.putExtra("vineyardName", vineyards.get(position).getName());
+                startActivity(intent);
             }
         });
-        */
+*/
 
         VineyardListViewModel.Factory factory = new VineyardListViewModel.Factory(getApplication());
         viewModel = ViewModelProviders.of(this, factory).get(VineyardListViewModel.class);
@@ -151,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
             if(vineyardEntities != null) {
                 vineyards = vineyardEntities;
                 recyclerAdapter.setData(vineyards);
-                System.out.println(vineyards.get(0).getName());
+                //vineyardList.setList(vineyards);
             }
         });
 
@@ -199,4 +205,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openActivityVineyardInfo() {
+        Intent intent = new Intent(this, VineyardInfo.class);
+            startActivity(intent);
+    }
 }

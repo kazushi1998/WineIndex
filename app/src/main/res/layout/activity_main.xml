@@ -45,16 +45,15 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/vineyardsRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="355dp"
+        android:layout_height="288dp"
         android:scrollbars="vertical" />
 
-    <!--
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="355dp"
-        android:dividerHeight="3dp"/>
-    -->
+        android:layout_height="56dp"
+        android:dividerHeight="3dp" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
