@@ -10,6 +10,8 @@ import com.example.wineindex.database.async.DeleteVineyard;
 import com.example.wineindex.database.async.UpdateVineyard;
 import com.example.wineindex.database.entity.VineyardEntity;
 import com.example.wineindex.util.OnAsyncEventListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -30,22 +32,57 @@ public class VineyardRepository {
     }
 
     public LiveData<VineyardEntity> getVineyard(final String name, Context context) {
-        return AppDataBase.getInstance(context).vineyardDao().findByName(name);
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("vineyards");
+        return new VineyardLiveData(reference);
+//        return AppDataBase.getInstance(context).vineyardDao().findByName(name);
     }
 
     public LiveData<List<VineyardEntity>> getAllVineyards(Context context) {
-        return AppDataBase.getInstance(context).vineyardDao().getAll();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("vineyards");
+        return new VineyardListLiveData(reference);
+//        return AppDataBase.getInstance(context).vineyardDao().getAll();
     }
 
     public void insert(final VineyardEntity vineyard, OnAsyncEventListener callback, Context context) {
-        new CreateVineyard(context, callback).execute(vineyard);
+        String id = FirebaseDatabase.getInstance().getReference("vineyards").push().getKey();
+        FirebaseDatabase.getInstance()
+                .getReference("vineyards")
+                .child(id)
+                .setValue(vineyard, (databaseError, databaseReference) -> {
+                    if (databaseError != null) {
+                        callback.onFailure(databaseError.toException());
+                    } else {
+                        callback.onSuccess();
+                    }
+                });
+//        new CreateVineyard(context, callback).execute(vineyard);
     }
 
     public void update(final VineyardEntity vineyard, OnAsyncEventListener callback, Context context) {
-        new UpdateVineyard(context, callback).execute(vineyard);
+        FirebaseDatabase.getInstance()
+                .getReference("vineyards")
+                .child(vineyard.getName())
+                .updateChildren(vineyard.toMap(), (databaseError, databaseReference) -> {
+                    if (databaseError != null) {
+                        callback.onFailure(databaseError.toException());
+                    } else {
+                        callback.onSuccess();
+                    }
+                });
+//        new UpdateVineyard(context, callback).execute(vineyard);
     }
 
     public void delete(final VineyardEntity vineyard, OnAsyncEventListener callback, Context context) {
-        new DeleteVineyard(context, callback).execute(vineyard);
+        FirebaseDatabase.getInstance()
+                .getReference("vineyards")
+                .child(vineyard.getName())
+                .removeValue((databaseError, databaseReference) -> {
+                    if (databaseError != null) {
+                        callback.onFailure(databaseError.toException());
+                    } else {
+                        callback.onSuccess();
+                    }
+                });
+//        new DeleteVineyard(context, callback).execute(vineyard);
     }
 }
