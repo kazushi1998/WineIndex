@@ -1,15 +1,18 @@
 package com.example.wineindex.database.repository;
 
 import android.content.Context;
+import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 
-import com.example.wineindex.database.AppDataBase;
-import com.example.wineindex.database.async.CreateVineyard;
-import com.example.wineindex.database.async.DeleteVineyard;
-import com.example.wineindex.database.async.UpdateVineyard;
 import com.example.wineindex.database.entity.VineyardEntity;
+import com.example.wineindex.database.firebase.VineyardListLiveData;
+import com.example.wineindex.database.firebase.VineyardLiveData;
 import com.example.wineindex.util.OnAsyncEventListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -34,13 +37,25 @@ public class VineyardRepository {
     public LiveData<VineyardEntity> getVineyard(final String name, Context context) {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("vineyards");
         return new VineyardLiveData(reference);
-//        return AppDataBase.getInstance(context).vineyardDao().findByName(name);
     }
 
-    public LiveData<List<VineyardEntity>> getAllVineyards(Context context) {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("vineyards");
+    public LiveData<List<VineyardEntity>> getAllVineyards() {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+
+        reference.child("vineyard").child("Salgesch").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                    System.out.println("Error getting data" +task.getException());
+                }
+                else {
+                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                    System.out.println("Else" +String.valueOf(task.getResult().getValue()));
+                }
+            }
+        });
         return new VineyardListLiveData(reference);
-//        return AppDataBase.getInstance(context).vineyardDao().getAll();
     }
 
     public void insert(final VineyardEntity vineyard, OnAsyncEventListener callback, Context context) {
@@ -55,7 +70,6 @@ public class VineyardRepository {
                         callback.onSuccess();
                     }
                 });
-//        new CreateVineyard(context, callback).execute(vineyard);
     }
 
     public void update(final VineyardEntity vineyard, OnAsyncEventListener callback, Context context) {
@@ -69,7 +83,6 @@ public class VineyardRepository {
                         callback.onSuccess();
                     }
                 });
-//        new UpdateVineyard(context, callback).execute(vineyard);
     }
 
     public void delete(final VineyardEntity vineyard, OnAsyncEventListener callback, Context context) {
@@ -83,6 +96,5 @@ public class VineyardRepository {
                         callback.onSuccess();
                     }
                 });
-//        new DeleteVineyard(context, callback).execute(vineyard);
     }
 }

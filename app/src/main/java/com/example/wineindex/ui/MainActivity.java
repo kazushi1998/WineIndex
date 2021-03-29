@@ -4,7 +4,7 @@ import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,17 +15,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.wineindex.R;
 import com.example.wineindex.adapter.RecyclerAdapter;
 import com.example.wineindex.adapter.VineyardList;
-import com.example.wineindex.database.AppDataBase;
-import com.example.wineindex.database.DatabaseInitializer;
 import com.example.wineindex.database.entity.VineyardEntity;
-import com.example.wineindex.database.repository.VineyardRepository;
 import com.example.wineindex.ui.Favorites.Favorites;
 import com.example.wineindex.ui.Settings.Settings;
 import com.example.wineindex.ui.Wines.VineyardInfo;
@@ -41,40 +36,13 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
-    private FloatingActionButton buttonAdd;
-
     private List<VineyardEntity> vineyards;
     private RecyclerAdapter recyclerAdapter;
     private VineyardListViewModel viewModel;
 
-    private VineyardList vineyardList;
-    private ListView listView;
-    private String vineyardName[] = {
-            "0Visperterminen",
-            "0Varen",
-            "0Salgesch",
-            "0Siders"
-    };
-
-    private String vineyardDescription[] = {
-            "0Europas höchster Weinberg.",
-            "0Die Weininsel im Wallis.",
-            "0Will wier ine räbe läbe.",
-            "0Wasser predigen, Wein trinken."
-    };
-
-    private Integer vineyardPicture[] = {
-            R.drawable.vy_visperterminen,
-            R.drawable.vy_varen,
-            R.drawable.vy_salgesch,
-            R.drawable.vy_siders
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        DatabaseInitializer.populateDatabase(AppDataBase.getInstance(getApplicationContext()));
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -116,48 +84,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        buttonAdd = findViewById(R.id.floatingActionButton);
-        buttonAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });
-
-/*
-        listView = (ListView) findViewById(android.R.id.list);
-
-        vineyardList = new VineyardList(this, vineyardName, vineyardDescription, vineyardPicture);
-        listView.setAdapter(vineyardList);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                */
-/*openActivityVineyardInfo();
-                Toast.makeText(getApplicationContext(), "You selected " + vineyards.get(position).getName() + ".", Toast.LENGTH_SHORT).show();*//*
-
-
-                Log.d(TAG, "clicked position:" + position);
-                Log.d(TAG, "clicked on: " + vineyards.get(position).toString());
-
-                Intent intent = new Intent(MainActivity.this, VineyardInfo.class);
-                intent.setFlags(
-                        Intent.FLAG_ACTIVITY_NO_ANIMATION |
-                                Intent.FLAG_ACTIVITY_NO_HISTORY
-                );
-                intent.putExtra("vineyardName", vineyards.get(position).getName());
-                startActivity(intent);
-            }
-        });
-*/
-
         VineyardListViewModel.Factory factory = new VineyardListViewModel.Factory(getApplication());
-        viewModel = ViewModelProviders.of(this, factory).get(VineyardListViewModel.class);
+        viewModel = new ViewModelProvider(this,factory).get(VineyardListViewModel.class);
         viewModel.getVineyards().observe(this, vineyardEntities -> {
             if(vineyardEntities != null) {
                 vineyards = vineyardEntities;
+                System.out.println("-----------"+vineyards.get(0).getName());
                 recyclerAdapter.setData(vineyards);
-                //vineyardList.setList(vineyards);
             }
         });
 

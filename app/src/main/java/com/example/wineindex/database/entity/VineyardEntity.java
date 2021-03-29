@@ -1,7 +1,6 @@
 package com.example.wineindex.database.entity;
 
 import androidx.annotation.NonNull;
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -23,7 +22,7 @@ public class VineyardEntity {
         this.vineyardsId = vineyardsId;
     }
 
-    @ColumnInfo(name = "VineyardName")
+    @Exclude
     private String name;
 
     private String info;
@@ -48,6 +47,14 @@ public class VineyardEntity {
         this.vineyardsId = vineyardsId;
         this.name = name;
         this.info = info;
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (obj == this) return true;
+        if (!(obj instanceof VineyardEntity)) return false;
+        VineyardEntity o = (VineyardEntity) obj;
+        return o.getName().equals(this.getName());
     }
 
     @Exclude

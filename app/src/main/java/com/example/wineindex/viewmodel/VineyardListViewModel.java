@@ -18,21 +18,18 @@ import java.util.List;
 
 public class VineyardListViewModel extends AndroidViewModel {
     private VineyardRepository repository;
-    private Context applicationContext;
+
     private final MediatorLiveData<List<VineyardEntity>> observableVineyards;
-    public LiveData<List<VineyardEntity>> vineyards;
 
     public VineyardListViewModel(@NonNull Application application, VineyardRepository vineyardRepository) {
         super(application);
 
         repository = vineyardRepository;
 
-        applicationContext = application.getApplicationContext();
-
         observableVineyards = new MediatorLiveData<>();
         observableVineyards.setValue(null);
 
-        LiveData<List<VineyardEntity>> vineyards = repository.getAllVineyards(applicationContext);
+        LiveData<List<VineyardEntity>> vineyards = repository.getAllVineyards();
         observableVineyards.addSource(vineyards, observableVineyards::setValue);
     }
 
@@ -46,9 +43,9 @@ public class VineyardListViewModel extends AndroidViewModel {
             vineyardRepository = VineyardRepository.getInstance();
         }
 
-        @NonNull
+
         @Override
-        public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
+        public <T extends ViewModel> T create(Class<T> modelClass) {
             return (T) new VineyardListViewModel(application, vineyardRepository);
         }
     }
