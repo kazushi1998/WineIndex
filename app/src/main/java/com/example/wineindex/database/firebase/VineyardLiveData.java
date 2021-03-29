@@ -8,14 +8,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
+import com.example.wineindex.database.entity.VineyardEntity;
 
-public class VineyardLiveData<DatabaseReference> {
-    private static final String TAG = "ClientLiveData";
+public class VineyardLiveData extends LiveData<VineyardEntity> {
+
+    private static final String TAG = "VineyardLiveData";
 
     private final DatabaseReference reference;
     private final MyValueEventListener listener = new MyValueEventListener();
 
-    public ClientLiveData(DatabaseReference ref) {
+    public VineyardLiveData(DatabaseReference ref) {
         this.reference = ref;
     }
 
@@ -34,8 +37,8 @@ public class VineyardLiveData<DatabaseReference> {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             if (dataSnapshot.exists()) {
-                ClientEntity entity = dataSnapshot.getValue(ClientEntity.class);
-                entity.setId(dataSnapshot.getKey());
+                VineyardEntity entity = dataSnapshot.getValue(VineyardEntity.class);
+                entity.setName(dataSnapshot.getKey());
                 setValue(entity);
             }
         }
