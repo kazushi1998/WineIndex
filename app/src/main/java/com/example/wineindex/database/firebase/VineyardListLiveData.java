@@ -39,11 +39,13 @@ public class VineyardListLiveData extends LiveData<List<VineyardEntity>> {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
             setValue(toVineyardList(snapshot));
+
         }
 
         @Override
         public void onCancelled(@NonNull DatabaseError error) {
             Log.e(TAG, "Can't listen to query " + reference, error.toException());
+
         }
 
         private List<VineyardEntity> toVineyardList(DataSnapshot snapshot) {

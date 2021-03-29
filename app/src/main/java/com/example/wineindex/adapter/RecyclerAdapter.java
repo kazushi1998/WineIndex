@@ -89,6 +89,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                         VineyardEntity newVineyard = data.get(newItemPosition);
                         VineyardEntity oldVineyard = RecyclerAdapter.this.data.get(newItemPosition);
                         return Objects.equals(newVineyard.getName(), oldVineyard.getName());
+
                     }
                     return false;
                 }

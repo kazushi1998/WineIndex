@@ -40,22 +40,24 @@ public class VineyardRepository {
     }
 
     public LiveData<List<VineyardEntity>> getAllVineyards() {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-
-        reference.child("vineyard").child("Salgesch").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (!task.isSuccessful()) {
-                    Log.e("firebase", "Error getting data", task.getException());
-                    System.out.println("Error getting data" +task.getException());
-                }
-                else {
-                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
-                    System.out.println("Else" +String.valueOf(task.getResult().getValue()));
-                }
-            }
-        });
+        DatabaseReference reference = FirebaseDatabase.getInstance()
+                .getReference("vineyards");
         return new VineyardListLiveData(reference);
+
+//        reference.child("vineyards").child("Salgesch").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<DataSnapshot> task) {
+//                if (!task.isSuccessful()) {
+//                    Log.e("firebase", "Error getting data", task.getException());
+//                    System.out.println("Error getting data" +task.getException());
+//                }
+//                else {
+//                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
+//                    System.out.println("Else" +String.valueOf(task.getResult().getValue()));
+//                }
+//            }
+//        });
+
     }
 
     public void insert(final VineyardEntity vineyard, OnAsyncEventListener callback, Context context) {

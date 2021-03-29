@@ -1,7 +1,6 @@
 package com.example.wineindex.viewmodel;
 
 import android.app.Application;
-import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -10,7 +9,6 @@ import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.wineindex.adapter.VineyardList;
 import com.example.wineindex.database.entity.VineyardEntity;
 import com.example.wineindex.database.repository.VineyardRepository;
 
