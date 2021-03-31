@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WineListLiveData  extends LiveData<List<WineEntity>> {
-    private static final String TAG = "WinessLiveData";
+    private static final String TAG = "WinesLiveData";
 
     private final DatabaseReference reference;
     private final WineListLiveData.MyValueEventListener listener = new WineListLiveData.MyValueEventListener();

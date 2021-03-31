@@ -2,26 +2,35 @@ package com.example.wineindex.ui.Wines;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.wineindex.R;
+import com.example.wineindex.adapter.RecyclerAdapter;
 import com.example.wineindex.database.entity.FavoriteEntity;
 import com.example.wineindex.database.entity.VineyardEntity;
+import com.example.wineindex.database.entity.WineEntity;
 import com.example.wineindex.ui.Settings.Settings;
 import com.example.wineindex.ui.AddWine.AddWine;
 import com.example.wineindex.ui.MainActivity;
+import com.example.wineindex.util.RecyclerViewItemClickListener;
 import com.example.wineindex.viewmodel.VineyardViewModel;
+import com.example.wineindex.viewmodel.WineListViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class VineyardInfo extends AppCompatActivity {
     private FloatingActionButton fabAdd;
@@ -31,6 +40,12 @@ public class VineyardInfo extends AppCompatActivity {
 
     private TextView tvVineyardName;
     private TextView tvDescription;
+
+    private static final String TAG = "MainActivity";
+
+    private List<WineEntity> wines;
+    private RecyclerAdapter recyclerAdapter;
+    private WineListViewModel listviewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +58,51 @@ public class VineyardInfo extends AppCompatActivity {
 
         String vineyardName = getIntent().getStringExtra("vineyardName");
 
-        RecyclerView recyclerView = findViewById(R.id.vineyardsRecyclerView);
+        /* -------------------------------------------------------------------------------------------- */
+
+        RecyclerView recyclerView = findViewById(R.id.winesRecyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), LinearLayoutManager.VERTICAL);
+        recyclerView.addItemDecoration(dividerItemDecoration);
+
+        wines = new ArrayList<>();
+        recyclerAdapter = new RecyclerAdapter(new RecyclerViewItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+
+                Log.d(TAG, "clicked position:" + position);
+                Log.d(TAG, "clicked on: " + wines.get(position).toString());
+
+                Intent intent = new Intent(VineyardInfo.this, MainActivity.class);
+                intent.setFlags(
+                        Intent.FLAG_ACTIVITY_NO_ANIMATION |
+                                Intent.FLAG_ACTIVITY_NO_HISTORY
+                );
+                intent.putExtra("vineyardName", wines.get(position).getName());
+                startActivity(intent);
+            }
+
+            @Override
+            public void onItemLongClick(View v, int position) {
+                Log.d(TAG, "longClicked position:" + position);
+                Log.d(TAG, "longClicked on: " + wines.get(position).toString());
+            }
+        });
+
+        WineListViewModel.Factory factoryWine = new WineListViewModel.Factory(getApplication());
+        listviewModel = new ViewModelProvider(this,factoryWine).get(WineListViewModel.class);
+        listviewModel.getWines().observe(this, wineEntities -> {
+            if(wineEntities != null) {
+                wines = wineEntities;
+                System.out.println("-----------"+wines.get(0).getName());
+                recyclerAdapter.setData(wines);
+            }
+        });
+
+        /* ---------------------------------------------------------------------------------------------------------- */
         tvVineyardName = findViewById(R.id.textView11);
         tvDescription = findViewById(R.id.tvDescription);
 
@@ -65,6 +121,7 @@ public class VineyardInfo extends AppCompatActivity {
                 openActivityAddWine();
             }
         });
+        recyclerView.setAdapter(recyclerAdapter);
     }
 
     @Override
@@ -121,7 +178,7 @@ public class VineyardInfo extends AppCompatActivity {
     private void updateContent() {
         if (vineyard != null) {
             tvVineyardName.setText(vineyard.getName());
-            tvDescription.setText(vineyard.getInfo());
+            tvDescription.setText(vineyard.getDescription());
 
         }
     }

@@ -9,7 +9,7 @@ import java.util.Map;
 public class VineyardEntity {
     private String name;
 
-    private String info;
+    private String description;
 
     public VineyardEntity(){
     }
@@ -23,12 +23,12 @@ public class VineyardEntity {
         this.name = name;
     }
 
-    public String getInfo() {
-        return info;
+    public String getDescription() {
+        return description;
     }
 
-    public void setInfo(String info) {
-        this.info = info;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class VineyardEntity {
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("name", name);
-        result.put("info", info);
+        result.put("description", description);
         return result;
     }
 }

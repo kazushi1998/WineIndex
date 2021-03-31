@@ -12,19 +12,11 @@ import java.util.Map;
 
 @Entity
 public class WineEntity {
-    @PrimaryKey
-    private int wineId;
 
-    @ColumnInfo(name = "WineName")
     private String name;
 
-    public int getWineId() {
-        return wineId;
-    }
+    private String vineyard;
 
-    public void setWineId(int wineId) {
-        this.wineId = wineId;
-    }
 
     public String getName() {
         return name;
@@ -34,23 +26,24 @@ public class WineEntity {
         this.name = name;
     }
 
-    public String getWinery() {
-        return winery;
+    public String getVineyard() {
+        return vineyard;
     }
 
-    public void setWinery(String winery) {
-        this.winery = winery;
+    public void setVineyard(String vineyard) {
+        this.vineyard = vineyard;
     }
 
-    @ColumnInfo(name = "Winery")
-    private String winery;
 
-    public WineEntity(@NonNull int wineId, String name, String winery) {
-        this.wineId=wineId;
+    public WineEntity(@NonNull  String name, String vineyard) {
         this.name=name;
-        this.winery=winery;
+        this.vineyard=vineyard;
+    }
+
+    public WineEntity(){
 
     }
+
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
