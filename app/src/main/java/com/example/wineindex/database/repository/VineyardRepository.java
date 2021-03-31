@@ -35,13 +35,12 @@ public class VineyardRepository {
     }
 
     public LiveData<VineyardEntity> getVineyard(final String name, Context context) {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("vineyards");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("vineyard");
         return new VineyardLiveData(reference);
     }
 
     public LiveData<List<VineyardEntity>> getAllVineyards() {
-        DatabaseReference reference = FirebaseDatabase.getInstance()
-                .getReference("vineyards");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("vineyard");
         return new VineyardListLiveData(reference);
 
 //        reference.child("vineyards").child("Salgesch").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {

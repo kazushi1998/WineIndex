@@ -2,6 +2,7 @@ package com.example.wineindex.ui;
 
 import android.content.Intent;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
@@ -23,6 +24,10 @@ import com.example.wineindex.ui.Settings.Settings;
 import com.example.wineindex.ui.Wines.VineyardInfo;
 import com.example.wineindex.util.RecyclerViewItemClickListener;
 import com.example.wineindex.viewmodel.VineyardListViewModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,6 +95,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        FirebaseDatabase.getInstance().getReference("vineyard").child("1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    System.out.println("firebase Error getting data" + task.getException());
+                } else {
+                    System.out.println("firebase " + String.valueOf(task.getResult().getValue()));
+                }
+            }});
         recyclerView.setAdapter(recyclerAdapter);
     }
 
