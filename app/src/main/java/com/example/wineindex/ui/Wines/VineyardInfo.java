@@ -31,6 +31,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class VineyardInfo extends AppCompatActivity {
     private FloatingActionButton fabAdd;
@@ -47,6 +48,8 @@ public class VineyardInfo extends AppCompatActivity {
     private RecyclerAdapter recyclerAdapter;
     private WineListViewModel listviewModel;
 
+    private String vineyardName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +59,7 @@ public class VineyardInfo extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        String vineyardName = getIntent().getStringExtra("vineyardName");
+        vineyardName = getIntent().getStringExtra("vineyardName");
 
         RecyclerView recyclerView = findViewById(R.id.winesRecyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -93,7 +96,14 @@ public class VineyardInfo extends AppCompatActivity {
         listviewModel = new ViewModelProvider(this, factoryWine).get(WineListViewModel.class);
         listviewModel.getWines().observe(this, wineEntities -> {
             if (wineEntities != null) {
-                wines = wineEntities;
+                List<WineEntity> wines = new ArrayList<>();
+
+                for (WineEntity temp : wineEntities) {
+                    if(temp.getVineyard().equals(vineyardName)) {
+                        wines.add(temp);
+                    }
+                }
+
                 recyclerAdapter.setData(wines);
             }
         });
