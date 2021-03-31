@@ -87,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
         viewModel.getVineyards().observe(this, vineyardEntities -> {
             if(vineyardEntities != null) {
                 vineyards = vineyardEntities;
-                System.out.println("-----------"+vineyards.get(0).getName());
                 recyclerAdapter.setData(vineyards);
             }
         });

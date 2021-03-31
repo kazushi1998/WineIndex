@@ -58,12 +58,9 @@ public class VineyardInfo extends AppCompatActivity {
 
         String vineyardName = getIntent().getStringExtra("vineyardName");
 
-        /* -------------------------------------------------------------------------------------------- */
-
         RecyclerView recyclerView = findViewById(R.id.winesRecyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), LinearLayoutManager.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
@@ -93,23 +90,21 @@ public class VineyardInfo extends AppCompatActivity {
         });
 
         WineListViewModel.Factory factoryWine = new WineListViewModel.Factory(getApplication());
-        listviewModel = new ViewModelProvider(this,factoryWine).get(WineListViewModel.class);
+        listviewModel = new ViewModelProvider(this, factoryWine).get(WineListViewModel.class);
         listviewModel.getWines().observe(this, wineEntities -> {
-            if(wineEntities != null) {
+            if (wineEntities != null) {
                 wines = wineEntities;
-                System.out.println("-----------"+wines.get(0).getName());
                 recyclerAdapter.setData(wines);
             }
         });
 
-        /* ---------------------------------------------------------------------------------------------------------- */
         tvVineyardName = findViewById(R.id.textView11);
         tvDescription = findViewById(R.id.tvDescription);
 
         VineyardViewModel.Factory factory = new VineyardViewModel.Factory(getApplication(), vineyardName);
-        viewModel = ViewModelProviders.of(this,factory).get(VineyardViewModel.class);
-        viewModel.getVineyard().observe(this,vineyardEntity -> {
-            if(vineyardEntity != null){
+        viewModel = ViewModelProviders.of(this, factory).get(VineyardViewModel.class);
+        viewModel.getVineyard().observe(this, vineyardEntity -> {
+            if (vineyardEntity != null) {
                 vineyard = vineyardEntity;
                 updateContent();
             }
@@ -155,7 +150,6 @@ public class VineyardInfo extends AppCompatActivity {
     }
 
 
-
     public void openActivityFavorites() {
         Intent intent = new Intent(this, FavoriteEntity.class);
         startActivity(intent);
@@ -175,6 +169,7 @@ public class VineyardInfo extends AppCompatActivity {
         Intent intent = new Intent(this, AddWine.class);
         startActivity(intent);
     }
+
     private void updateContent() {
         if (vineyard != null) {
             tvVineyardName.setText(vineyard.getName());
