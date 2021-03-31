@@ -35,27 +35,13 @@ public class VineyardRepository {
     }
 
     public LiveData<VineyardEntity> getVineyard(final String name, Context context) {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("vineyard");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("vineyards").child(name);
         return new VineyardLiveData(reference);
     }
 
     public LiveData<List<VineyardEntity>> getAllVineyards() {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("vineyard");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("vineyards");
         return new VineyardListLiveData(reference);
-
-//        reference.child("vineyards").child("Salgesch").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DataSnapshot> task) {
-//                if (!task.isSuccessful()) {
-//                    Log.e("firebase", "Error getting data", task.getException());
-//                    System.out.println("Error getting data" +task.getException());
-//                }
-//                else {
-//                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
-//                    System.out.println("Else" +String.valueOf(task.getResult().getValue()));
-//                }
-//            }
-//        });
 
     }
 

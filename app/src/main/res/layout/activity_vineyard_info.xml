@@ -25,34 +25,40 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="179dp"
+            android:layout_width="181dp"
             android:layout_height="141dp"
             android:layout_weight="1"
-            android:src="@drawable/vy_visperterminen" />
-
-        <com.google.android.gms.maps.MapView
-            android:id="@+id/mapView5"
-            android:layout_width="327dp"
-            android:layout_height="143dp"
-            android:layout_weight="1" />
+            android:src="@drawable/vy_visperterminen"
+            android:textAlignment="center" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="41dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Visperterminen"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -63,16 +69,19 @@
         <TextView
             android:id="@+id/textView12"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="55dp"
+            android:gravity="center_vertical"
             android:text="Available Wine"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold" />
 
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/winesRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="373dp" />
+            android:layout_height="match_parent"
+            android:scrollbars="vertical" />
 
     </LinearLayout>
 

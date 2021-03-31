@@ -62,9 +62,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerAdapter = new RecyclerAdapter(new RecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
-                if(position < 0) {
-                    position = 0;
-                }
 
                 Log.d(TAG, "clicked position:" + position);
                 Log.d(TAG, "clicked on: " + vineyards.get(position).toString());

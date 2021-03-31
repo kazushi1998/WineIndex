@@ -28,6 +28,7 @@ public class VineyardInfo extends AppCompatActivity {
     private VineyardEntity vineyard;
 
     private TextView tvVineyardName;
+    private TextView tvDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class VineyardInfo extends AppCompatActivity {
         String vineyardName = getIntent().getStringExtra("vineyardName");
 
         tvVineyardName = findViewById(R.id.textView11);
+        tvDescription = findViewById(R.id.tvDescription);
 
         VineyardViewModel.Factory factory = new VineyardViewModel.Factory(getApplication(), vineyardName);
         viewModel = ViewModelProviders.of(this,factory).get(VineyardViewModel.class);
@@ -113,6 +115,7 @@ public class VineyardInfo extends AppCompatActivity {
     private void updateContent() {
         if (vineyard != null) {
             tvVineyardName.setText(vineyard.getName());
+            tvDescription.setText(vineyard.getInfo());
 
         }
     }

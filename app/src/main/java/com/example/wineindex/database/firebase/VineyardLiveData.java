@@ -39,6 +39,7 @@ public class VineyardLiveData extends LiveData<VineyardEntity> {
             if (dataSnapshot.exists()) {
                 VineyardEntity entity = dataSnapshot.getValue(VineyardEntity.class);
                 entity.setName(dataSnapshot.getKey());
+                entity.setInfo(dataSnapshot.child("description").getValue().toString());
                 setValue(entity);
             }
         }
