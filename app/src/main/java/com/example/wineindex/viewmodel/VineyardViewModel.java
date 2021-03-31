@@ -72,15 +72,4 @@ public class VineyardViewModel  extends AndroidViewModel {
         return observableClient;
     }
 
-    public void createVineyard(VineyardEntity client, OnAsyncEventListener callback) {
-        repository.insert(client, callback, applicationContext);
-    }
-
-    public void updateVineyard(VineyardEntity client, OnAsyncEventListener callback) {
-        repository.update(client, callback, applicationContext);
-    }
-
-    public void deleteVineyard(VineyardEntity client, OnAsyncEventListener callback) {
-        repository.delete(client, callback, applicationContext);
-    }
 }

@@ -45,43 +45,5 @@ public class VineyardRepository {
 
     }
 
-    public void insert(final VineyardEntity vineyard, OnAsyncEventListener callback, Context context) {
-        String id = FirebaseDatabase.getInstance().getReference("vineyards").push().getKey();
-        FirebaseDatabase.getInstance()
-                .getReference("vineyards")
-                .child(id)
-                .setValue(vineyard, (databaseError, databaseReference) -> {
-                    if (databaseError != null) {
-                        callback.onFailure(databaseError.toException());
-                    } else {
-                        callback.onSuccess();
-                    }
-                });
     }
 
-    public void update(final VineyardEntity vineyard, OnAsyncEventListener callback, Context context) {
-        FirebaseDatabase.getInstance()
-                .getReference("vineyards")
-                .child(vineyard.getName())
-                .updateChildren(vineyard.toMap(), (databaseError, databaseReference) -> {
-                    if (databaseError != null) {
-                        callback.onFailure(databaseError.toException());
-                    } else {
-                        callback.onSuccess();
-                    }
-                });
-    }
-
-    public void delete(final VineyardEntity vineyard, OnAsyncEventListener callback, Context context) {
-        FirebaseDatabase.getInstance()
-                .getReference("vineyards")
-                .child(vineyard.getName())
-                .removeValue((databaseError, databaseReference) -> {
-                    if (databaseError != null) {
-                        callback.onFailure(databaseError.toException());
-                    } else {
-                        callback.onSuccess();
-                    }
-                });
-    }
-}

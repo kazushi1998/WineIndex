@@ -3,6 +3,8 @@ package com.example.wineindex.ui.Wines;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -40,6 +42,10 @@ public class VineyardInfo extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         String vineyardName = getIntent().getStringExtra("vineyardName");
+
+        RecyclerView recyclerView = findViewById(R.id.vineyardsRecyclerView);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
 
         tvVineyardName = findViewById(R.id.textView11);
         tvDescription = findViewById(R.id.tvDescription);
