@@ -1,41 +1,17 @@
 package com.example.wineindex.viewmodel;
 
 import android.app.Application;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.wineindex.R;
-import com.example.wineindex.adapter.RecyclerAdapter;
-import com.example.wineindex.database.entity.FavoriteEntity;
-import com.example.wineindex.database.entity.VineyardEntity;
 import com.example.wineindex.database.entity.WineEntity;
-import com.example.wineindex.database.repository.VineyardRepository;
 import com.example.wineindex.database.repository.WineRepository;
-import com.example.wineindex.ui.AddWine.AddWine;
-import com.example.wineindex.ui.MainActivity;
-import com.example.wineindex.ui.Settings.Settings;
-import com.example.wineindex.ui.Wines.VineyardInfo;
-import com.example.wineindex.util.RecyclerViewItemClickListener;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class WineListViewModel extends AndroidViewModel {

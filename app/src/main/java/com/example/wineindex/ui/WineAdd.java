@@ -1,4 +1,4 @@
-package com.example.wineindex.ui.AddWine;
+package com.example.wineindex.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -9,21 +9,18 @@ import android.view.Menu;
 import android.view.View;
 
 import com.example.wineindex.database.entity.FavoriteEntity;
-import com.example.wineindex.ui.MainActivity;
 import com.example.wineindex.R;
-import com.example.wineindex.ui.Settings.Settings;
-import com.example.wineindex.ui.Wines.VineyardInfo;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.view.MenuItem;
 
-public class AddWine extends AppCompatActivity {
+public class WineAdd extends AppCompatActivity {
     private FloatingActionButton fabAccept;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_wine);
+        setContentView(R.layout.activity_wine_add);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

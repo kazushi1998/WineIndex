@@ -1,4 +1,4 @@
-package com.example.wineindex.ui.Settings;
+package com.example.wineindex.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.wineindex.R;
 
-public class Settings extends AppCompatActivity {
+public class WineEdit extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_wine_edit);
     }
 }

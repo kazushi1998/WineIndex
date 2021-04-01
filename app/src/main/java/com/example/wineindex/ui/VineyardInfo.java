@@ -1,4 +1,4 @@
-package com.example.wineindex.ui.Wines;
+package com.example.wineindex.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -21,9 +21,6 @@ import com.example.wineindex.adapter.RecyclerAdapter;
 import com.example.wineindex.database.entity.FavoriteEntity;
 import com.example.wineindex.database.entity.VineyardEntity;
 import com.example.wineindex.database.entity.WineEntity;
-import com.example.wineindex.ui.Settings.Settings;
-import com.example.wineindex.ui.AddWine.AddWine;
-import com.example.wineindex.ui.MainActivity;
 import com.example.wineindex.util.RecyclerViewItemClickListener;
 import com.example.wineindex.viewmodel.VineyardViewModel;
 import com.example.wineindex.viewmodel.WineListViewModel;
@@ -31,7 +28,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class VineyardInfo extends AppCompatActivity {
     private FloatingActionButton fabAdd;
@@ -176,7 +172,7 @@ public class VineyardInfo extends AppCompatActivity {
     }
 
     public void openActivityAddWine() {
-        Intent intent = new Intent(this, AddWine.class);
+        Intent intent = new Intent(this, WineAdd.class);
         startActivity(intent);
     }
 

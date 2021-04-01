@@ -1,4 +1,4 @@
-package com.example.wineindex.ui.Favorites;
+package com.example.wineindex.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
