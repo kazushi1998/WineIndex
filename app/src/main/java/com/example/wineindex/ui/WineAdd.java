@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 
@@ -18,6 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class WineAdd extends AppCompatActivity {
 
@@ -32,6 +34,8 @@ public class WineAdd extends AppCompatActivity {
 
     private WineEntity wine;
     private WineViewModel viewModel;
+
+    Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +57,17 @@ public class WineAdd extends AppCompatActivity {
         fabAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                wineName = etWineName.getText().toString();
-                createWine(wineName, vineyardName);
-                openActivityVineyardInfo();
+                if(etWineName.getText().toString().equals("")){
+                   toast = Toast.makeText(WineAdd.this, "No Winename was entered",Toast.LENGTH_SHORT);
+                   toast.show();
+                    etWineName.requestFocus();
+                    return;
+                }
+                else{
+                    wineName = etWineName.getText().toString();
+                    createWine(wineName, vineyardName);
+                    openActivityVineyardInfo();
+                }
             }
         });
     }
