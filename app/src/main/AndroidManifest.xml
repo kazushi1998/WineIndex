@@ -9,8 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WineIndex">
-        <activity android:name=".ui.WineEdit"></activity>
-        <activity android:name=".ui.WineInfo" />
+        <activity
+            android:name=".ui.WineEdit"
+            android:parentActivityName=".ui.VineyardInfo" />
+        <activity android:name=".ui.WineInfo">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.Settings"></meta-data>
+        </activity>
         <activity android:name=".ui.Settings" />
         <activity
             android:name=".ui.VineyardInfo"

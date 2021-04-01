@@ -26,6 +26,8 @@ public class WineAdd extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        setTitle("Add Wine");
+
         fabAccept = findViewById(R.id.floatingActionButton);
         fabAccept.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,18 +67,13 @@ public class WineAdd extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void openActivityMain() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    public void openVineyardInfoBack() {
-        Intent intent = new Intent(this, VineyardInfo.class);
-        startActivity(intent);
-    }
-
     public void openVineyardInfoAccept() {
         Intent intent = new Intent(this, VineyardInfo.class);
+        startActivity(intent);
+    }
+
+    public void openActivityMain() {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
@@ -89,5 +86,4 @@ public class WineAdd extends AppCompatActivity {
         Intent intent = new Intent(this, Settings.class);
         startActivity(intent);
     }
-
 }

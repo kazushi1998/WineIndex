@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimaryVariant"
-            android:text="ADD WINE"
+            android:text="Add Wine"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -72,24 +72,6 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:hint="Name"
-            android:textColorHint="@color/white" />
-
-        <EditText
-            android:id="@+id/edit_year"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:hint="Year"
-            android:textColorHint="@color/white" />
-
-        <EditText
-            android:id="@+id/edit_price"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:hint="Price"
             android:textColorHint="@color/white" />
 
         <EditText

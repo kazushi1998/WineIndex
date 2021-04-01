@@ -70,11 +70,10 @@ public class VineyardInfo extends AppCompatActivity {
         recyclerAdapter = new RecyclerAdapter(new RecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
-
                 Log.d(TAG, "clicked position:" + position);
                 Log.d(TAG, "clicked on: " + wines.get(position).toString());
 
-                Intent intent = new Intent(VineyardInfo.this, MainActivity.class);
+                Intent intent = new Intent(VineyardInfo.this, WineInfo.class);
                 intent.setFlags(
                         Intent.FLAG_ACTIVITY_NO_ANIMATION |
                                 Intent.FLAG_ACTIVITY_NO_HISTORY
@@ -87,6 +86,14 @@ public class VineyardInfo extends AppCompatActivity {
             public void onItemLongClick(View v, int position) {
                 Log.d(TAG, "longClicked position:" + position);
                 Log.d(TAG, "longClicked on: " + wines.get(position).toString());
+
+                Intent intent = new Intent(VineyardInfo.this, WineEdit.class);
+                intent.setFlags(
+                        Intent.FLAG_ACTIVITY_NO_ANIMATION |
+                                Intent.FLAG_ACTIVITY_NO_HISTORY
+                );
+                intent.putExtra("vineyardName", wines.get(position).getName());
+                startActivity(intent);
             }
         });
 
@@ -94,8 +101,6 @@ public class VineyardInfo extends AppCompatActivity {
         listviewModel = new ViewModelProvider(this, factoryWine).get(WineListViewModel.class);
         listviewModel.getWines().observe(this, wineEntities -> {
             if (wineEntities != null) {
-                List<WineEntity> wines = new ArrayList<>();
-
                 for (WineEntity temp : wineEntities) {
                     if(temp.getVineyard().equals(vineyardName)) {
                         wines.add(temp);
@@ -185,5 +190,4 @@ public class VineyardInfo extends AppCompatActivity {
 
         }
     }
-
 }

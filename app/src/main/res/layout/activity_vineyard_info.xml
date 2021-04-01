@@ -57,7 +57,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="401dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
@@ -75,7 +75,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/winesRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="284dp"
             android:scrollbars="vertical" />
 
     </LinearLayout>
