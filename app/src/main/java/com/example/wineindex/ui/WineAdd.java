@@ -11,9 +11,7 @@ import android.view.Menu;
 import android.view.View;
 
 import com.example.wineindex.R;
-import com.example.wineindex.database.entity.VineyardEntity;
 import com.example.wineindex.database.entity.WineEntity;
-import com.example.wineindex.database.repository.WineRepository;
 import com.example.wineindex.util.OnAsyncEventListener;
 import com.example.wineindex.viewmodel.WineViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,18 +19,16 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import java.util.List;
-
 public class WineAdd extends AppCompatActivity {
 
     private static final String TAG = "AddWine";
 
     private FloatingActionButton fabAccept;
-    private List<VineyardEntity> vineyards;
 
     private String vineyardName;
 
-    private EditText wineName;
+    private EditText etWineName;
+    private String wineName;
 
     private WineEntity wine;
     private WineViewModel viewModel;
@@ -52,20 +48,13 @@ public class WineAdd extends AppCompatActivity {
 
         fabAccept = findViewById(R.id.floatingActionButton);
 
-        wineName = findViewById(R.id.edit_name);
-
-        WineViewModel.Factory factory = new WineViewModel.Factory(getApplication(), wineName.getText().toString());
-        viewModel = new ViewModelProvider(this, factory).get(WineViewModel.class);
-        viewModel.getWine().observe(this, wineEntity -> {
-            if (wineEntity != null) {
-                wine = wineEntity;
-            }
-        });
+        etWineName = findViewById(R.id.wineAdd_wineName);
 
         fabAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createWine(wineName.getText().toString(),vineyardName);
+                wineName = etWineName.getText().toString();
+                createWine(wineName, vineyardName);
                 openActivityVineyardInfo();
             }
         });
@@ -115,11 +104,17 @@ public class WineAdd extends AppCompatActivity {
         Intent intent = new Intent(this, Settings.class);
         startActivity(intent);
     }
-    private void createWine(String wineName, String vineyardName) {
 
-        wine = new WineEntity();
-        wine.setName(wineName);
-        wine.setVineyard(vineyardName);
+    private void createWine(String wineName, String vineyardName) {
+        WineViewModel.Factory factory = new WineViewModel.Factory(getApplication(), wineName);
+        viewModel = new ViewModelProvider(this, factory).get(WineViewModel.class);
+        viewModel.getWine().observe(this, wineEntity -> {
+            if (wineEntity != null) {
+                wine = wineEntity;
+            }
+        });
+
+        wine = new WineEntity(wineName, vineyardName);
 
         viewModel.createWine(wine, new OnAsyncEventListener() {
             @Override

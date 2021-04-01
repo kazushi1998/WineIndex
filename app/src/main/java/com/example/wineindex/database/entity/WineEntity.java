@@ -34,7 +34,7 @@ public class WineEntity {
         this.vineyard = vineyard;
     }
 
-    public WineEntity(@NonNull  String name, String vineyard) {
+    public WineEntity(@NonNull String name, String vineyard) {
         this.name=name;
         this.vineyard=vineyard;
     }

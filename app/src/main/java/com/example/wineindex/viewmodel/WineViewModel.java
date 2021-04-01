@@ -24,8 +24,7 @@ public class WineViewModel extends AndroidViewModel {
     // MediatorLiveData can observe other LiveData objects and react on their emissions.
     private final MediatorLiveData<WineEntity> observableClient;
 
-    public WineViewModel(@NonNull Application application,
-                             final String name, WineRepository wineRepository) {
+    public WineViewModel(@NonNull Application application, final String name, WineRepository wineRepository) {
         super(application);
 
         repository = wineRepository;
@@ -49,7 +48,6 @@ public class WineViewModel extends AndroidViewModel {
 
         @NonNull
         private final Application application;
-
         private final String name;
 
         private final WineRepository repository;
