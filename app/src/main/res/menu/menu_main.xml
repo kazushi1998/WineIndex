@@ -10,12 +10,6 @@
         android:title="Vineyards"
         app:showAsAction="always" />
     <item
-        android:id="@+id/action_favorites"
-        android:orderInCategory="100"
-        android:icon="@drawable/star"
-        android:title="Favorites"
-        app:showAsAction="always" />
-    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:icon="@drawable/wrench"

@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        setTitle("Vineyards");
+        setTitle("WineIndex");
 
         RecyclerView recyclerView = findViewById(R.id.vineyardsRecyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -80,9 +80,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         VineyardListViewModel.Factory factory = new VineyardListViewModel.Factory(getApplication());
-        viewModel = new ViewModelProvider(this,factory).get(VineyardListViewModel.class);
+        viewModel = new ViewModelProvider(this, factory).get(VineyardListViewModel.class);
         viewModel.getVineyards().observe(this, vineyardEntities -> {
-            if(vineyardEntities != null) {
+            if (vineyardEntities != null) {
                 vineyards = vineyardEntities;
                 recyclerAdapter.setData(vineyards);
             }
@@ -96,7 +96,8 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     System.out.println("firebase " + String.valueOf(task.getResult().getValue()));
                 }
-            }});
+            }
+        });
         recyclerView.setAdapter(recyclerAdapter);
     }
 
@@ -136,6 +137,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void openActivityVineyardInfo() {
         Intent intent = new Intent(this, VineyardInfo.class);
-            startActivity(intent);
+        startActivity(intent);
     }
 }
