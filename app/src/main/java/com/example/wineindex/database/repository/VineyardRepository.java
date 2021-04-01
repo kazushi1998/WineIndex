@@ -34,7 +34,7 @@ public class VineyardRepository {
         return instance;
     }
 
-    public LiveData<VineyardEntity> getVineyard(final String name, Context context) {
+    public LiveData<VineyardEntity> getVineyard(final String name) {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("vineyards").child(name);
         return new VineyardLiveData(reference);
     }

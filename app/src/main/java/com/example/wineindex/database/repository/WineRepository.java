@@ -30,7 +30,7 @@ public class WineRepository {
         return instance;
     }
 
-    public LiveData<WineEntity> getWine(final String name, Context context) {
+    public LiveData<WineEntity> getWine(final String name) {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("wines").child(name);
         return new WineLiveData(reference);
     }
@@ -38,14 +38,13 @@ public class WineRepository {
     public LiveData<List<WineEntity>> getAllWinesOfVineyard() {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("wines");
         return new WineListLiveData(reference);
-
     }
 
-    public void insert(final WineEntity wine, OnAsyncEventListener callback, Context context) {
-        String id = FirebaseDatabase.getInstance().getReference("wines").push().getKey();
+    public void insert(final WineEntity wine, OnAsyncEventListener callback) {
+        FirebaseDatabase.getInstance().getReference("wines").child(wine.getName());
         FirebaseDatabase.getInstance()
                 .getReference("wines")
-                .child(id)
+                .child(wine.getName())
                 .setValue(wine, (databaseError, databaseReference) -> {
                     if (databaseError != null) {
                         callback.onFailure(databaseError.toException());
@@ -55,7 +54,7 @@ public class WineRepository {
                 });
     }
 
-    public void update(final WineEntity wine, OnAsyncEventListener callback, Context context) {
+    public void update(final WineEntity wine, OnAsyncEventListener callback) {
         FirebaseDatabase.getInstance()
                 .getReference("wines")
                 .child(wine.getName())
@@ -68,7 +67,7 @@ public class WineRepository {
                 });
     }
 
-    public void delete(final  WineEntity wine, OnAsyncEventListener callback, Context context) {
+    public void delete(final  WineEntity wine, OnAsyncEventListener callback) {
         FirebaseDatabase.getInstance()
                 .getReference("wines")
                 .child(wine.getName())

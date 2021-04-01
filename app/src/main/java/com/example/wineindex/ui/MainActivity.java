@@ -120,9 +120,6 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         switch (id) {
-            case R.id.action_favorites:
-                openActivityFavorites();
-                break;
             case R.id.action_settings:
                 openActivitySettings();
                 break;
@@ -131,10 +128,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void openActivityFavorites() {
-        Intent intent = new Intent(this, Favorites.class);
-        startActivity(intent);
-    }
 
     public void openActivitySettings() {
         Intent intent = new Intent(this, Settings.class);

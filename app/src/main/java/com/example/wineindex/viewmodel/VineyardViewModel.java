@@ -34,7 +34,7 @@ public class VineyardViewModel  extends AndroidViewModel {
         // set by default null, until we get data from the database.
         observableClient.setValue(null);
 
-        LiveData<VineyardEntity> client = repository.getVineyard(name, applicationContext);
+        LiveData<VineyardEntity> client = repository.getVineyard(name);
 
         // observe the changes of the client entity from the database and forward them
         observableClient.addSource(client, observableClient::setValue);

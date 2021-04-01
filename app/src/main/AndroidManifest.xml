@@ -14,7 +14,7 @@
             android:parentActivityName=".ui.VineyardInfo" />
         <activity android:name=".ui.WineInfo">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.Settings"></meta-data>
+                android:value=".ui.VineyardInfo"></meta-data>
         </activity>
         <activity android:name=".ui.Settings" />
         <activity
@@ -22,9 +22,6 @@
             android:parentActivityName=".ui.MainActivity" />
         <activity
             android:name=".ui.WineAdd"
-            android:parentActivityName=".ui.VineyardInfo" />
-        <activity
-            android:name=".ui.Favorites"
             android:parentActivityName=".ui.VineyardInfo" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>

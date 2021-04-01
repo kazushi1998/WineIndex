@@ -18,7 +18,6 @@ import android.widget.TextView;
 
 import com.example.wineindex.R;
 import com.example.wineindex.adapter.RecyclerAdapter;
-import com.example.wineindex.database.entity.FavoriteEntity;
 import com.example.wineindex.database.entity.VineyardEntity;
 import com.example.wineindex.database.entity.WineEntity;
 import com.example.wineindex.util.RecyclerViewItemClickListener;
@@ -111,7 +110,7 @@ public class VineyardInfo extends AppCompatActivity {
             }
         });
 
-        tvVineyardName = findViewById(R.id.textView11);
+        tvVineyardName = findViewById(R.id.wineInfoName);
         tvDescription = findViewById(R.id.tvDescription);
 
         VineyardViewModel.Factory factory = new VineyardViewModel.Factory(getApplication(), vineyardName);
@@ -151,9 +150,7 @@ public class VineyardInfo extends AppCompatActivity {
             case R.id.action_vineyard:
                 openActivityMain();
                 break;
-            case R.id.action_favorites:
-                openActivityFavorites();
-                break;
+
             case R.id.action_settings:
                 openActivitySettings();
                 break;
@@ -162,11 +159,6 @@ public class VineyardInfo extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-    public void openActivityFavorites() {
-        Intent intent = new Intent(this, FavoriteEntity.class);
-        startActivity(intent);
-    }
 
     public void openActivitySettings() {
         Intent intent = new Intent(this, Settings.class);
@@ -180,6 +172,7 @@ public class VineyardInfo extends AppCompatActivity {
 
     public void openActivityAddWine() {
         Intent intent = new Intent(this, WineAdd.class);
+        intent.putExtra("vineyardName", vineyard.getName());
         startActivity(intent);
     }
 

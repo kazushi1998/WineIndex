@@ -17,7 +17,7 @@ public class WineEntity {
 
     private String vineyard;
 
-
+    @Exclude
     public String getName() {
         return name;
     }
@@ -33,7 +33,6 @@ public class WineEntity {
     public void setVineyard(String vineyard) {
         this.vineyard = vineyard;
     }
-
 
     public WineEntity(@NonNull  String name, String vineyard) {
         this.name=name;

@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.wineindex.R;
-import com.example.wineindex.database.entity.FavoriteEntity;
 
 public class WineEdit extends AppCompatActivity {
 
@@ -44,9 +43,7 @@ public class WineEdit extends AppCompatActivity {
             case R.id.action_vineyard:
                 openActivityMain();
                 break;
-            case R.id.action_favorites:
-                openActivityFavorites();
-                break;
+
             case R.id.action_settings:
                 openActivitySettings();
                 break;
@@ -60,10 +57,6 @@ public class WineEdit extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openActivityFavorites() {
-        Intent intent = new Intent(this, FavoriteEntity.class);
-        startActivity(intent);
-    }
 
     public void openActivitySettings() {
         Intent intent = new Intent(this, Settings.class);

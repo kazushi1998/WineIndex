@@ -14,6 +14,7 @@ import com.example.wineindex.database.entity.VineyardEntity;
 import com.example.wineindex.database.entity.WineEntity;
 import com.example.wineindex.database.repository.VineyardRepository;
 import com.example.wineindex.database.repository.WineRepository;
+import com.example.wineindex.util.OnAsyncEventListener;
 
 public class WineViewModel extends AndroidViewModel {
     private WineRepository repository;
@@ -35,7 +36,7 @@ public class WineViewModel extends AndroidViewModel {
         // set by default null, until we get data from the database.
         observableClient.setValue(null);
 
-        LiveData<WineEntity> wine = repository.getWine(name, applicationContext);
+        LiveData<WineEntity> wine = repository.getWine(name);
 
         // observe the changes of the client entity from the database and forward them
         observableClient.addSource(wine, observableClient::setValue);
@@ -71,6 +72,10 @@ public class WineViewModel extends AndroidViewModel {
      */
     public LiveData<WineEntity> getWine() {
         return observableClient;
+    }
+
+    public void createWine(WineEntity wineEntity, OnAsyncEventListener callback) {
+       WineRepository.getInstance().insert(wineEntity, callback);
     }
 
 }

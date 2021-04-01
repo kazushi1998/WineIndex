@@ -7,11 +7,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.wineindex.R;
-import com.example.wineindex.database.entity.FavoriteEntity;
 
 public class WineInfo extends AppCompatActivity {
+
+    private TextView wineInfoName;
+    private String vineyardName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,10 @@ public class WineInfo extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        vineyardName = getIntent().getStringExtra("vineyardName");
+
+        wineInfoName = findViewById(R.id.wineInfoName);
+        wineInfoName.setText(vineyardName);
         setTitle("Wine");
     }
 
@@ -41,14 +48,10 @@ public class WineInfo extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         switch (id) {
-            case R.id.home:
-                openActivityFavorites();
             case R.id.action_vineyard:
                 openActivityMain();
                 break;
-            case R.id.action_favorites:
-                openActivityFavorites();
-                break;
+
             case R.id.action_settings:
                 openActivitySettings();
                 break;
@@ -59,11 +62,6 @@ public class WineInfo extends AppCompatActivity {
 
     public void openActivityMain() {
         Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    public void openActivityFavorites() {
-        Intent intent = new Intent(this, FavoriteEntity.class);
         startActivity(intent);
     }
 
