@@ -49,11 +49,13 @@ public class VineyardInfo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vineyard_info);
 
+        setContentView(R.layout.activity_vineyard_info);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        setTitle("Vineyard");
 
         vineyardName = getIntent().getStringExtra("vineyardName");
 
