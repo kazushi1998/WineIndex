@@ -9,11 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.wineindex.R;
@@ -36,6 +38,7 @@ public class VineyardInfo extends AppCompatActivity {
 
     private TextView tvVineyardName;
     private TextView tvDescription;
+    private ImageView ivVineyard;
 
     private static final String TAG = "MainActivity";
 
@@ -113,6 +116,8 @@ public class VineyardInfo extends AppCompatActivity {
 
         tvVineyardName = findViewById(R.id.wineInfoName);
         tvDescription = findViewById(R.id.tvDescription);
+        ivVineyard = findViewById(R.id.ivVineyard);
+
 
         VineyardViewModel.Factory factory = new VineyardViewModel.Factory(getApplication(), vineyardName);
         viewModel = ViewModelProviders.of(this, factory).get(VineyardViewModel.class);
@@ -182,6 +187,11 @@ public class VineyardInfo extends AppCompatActivity {
             tvVineyardName.setText(vineyard.getName());
             tvDescription.setText(vineyard.getDescription());
 
+            String uri = "@drawable/" + vineyard.getImage();
+
+            int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+            Drawable res = getResources().getDrawable(imageResource);
+            ivVineyard.setImageDrawable(res);
         }
     }
 }
