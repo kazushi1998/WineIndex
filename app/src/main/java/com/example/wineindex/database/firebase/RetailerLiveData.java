@@ -39,7 +39,7 @@ public class RetailerLiveData extends LiveData<RetailerEntity> {
             if (dataSnapshot.exists()) {
                 RetailerEntity entity = dataSnapshot.getValue(RetailerEntity.class);
                 entity.setName(dataSnapshot.getKey());
-                entity.setWebsite(dataSnapshot.child("description").getValue().toString());
+                entity.setWebsite(dataSnapshot.child("website").getValue().toString());
                 setValue(entity);
             }
         }

@@ -62,12 +62,13 @@
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
 
-        <TextView
+        <Button
             android:id="@+id/tvRetailer"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Retailer"
+            android:layout_gravity="center_horizontal"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="25sp" />

@@ -78,7 +78,7 @@ public class VineyardInfo extends AppCompatActivity {
                                 Intent.FLAG_ACTIVITY_NO_HISTORY
                 );
                 intent.putExtra("vineyardName", wines.get(position).getName());
-                intent.putExtra("retailer", wines.get(position).getRetailer());
+                intent.putExtra("retailerName", wines.get(position).getRetailer());
                 startActivity(intent);
             }
 

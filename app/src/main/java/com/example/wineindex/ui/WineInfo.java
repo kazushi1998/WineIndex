@@ -2,22 +2,38 @@ package com.example.wineindex.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.wineindex.R;
+import com.example.wineindex.adapter.RecyclerAdapter;
+import com.example.wineindex.database.entity.RetailerEntity;
+import com.example.wineindex.database.entity.WineEntity;
+import com.example.wineindex.viewmodel.RetailerListViewModel;
+import com.example.wineindex.viewmodel.RetailerViewModel;
+import com.example.wineindex.viewmodel.WineListViewModel;
+
+import java.util.List;
 
 public class WineInfo extends AppCompatActivity {
 
     private TextView wineInfoName;
     private String vineyardName;
 
-    private TextView tvRetailer;
+    private Button tvRetailer;
     private String retailerName;
+
+    private RetailerEntity retailer;
+    private RecyclerAdapter recyclerAdapter;
+    private RetailerViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +45,33 @@ public class WineInfo extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         vineyardName = getIntent().getStringExtra("vineyardName");
-        retailerName = getIntent().getStringExtra("retailer");
+        retailerName = getIntent().getStringExtra("retailerName");
 
         wineInfoName = findViewById(R.id.wineInfoName);
         wineInfoName.setText(vineyardName);
 
-        tvRetailer = findViewById(R.id.tvRetailer);
+        tvRetailer = (Button)findViewById(R.id.tvRetailer);
         tvRetailer.setText(retailerName);
+
+        RetailerViewModel.Factory factoryRetailer = new RetailerViewModel.Factory(getApplication(),retailerName);
+        viewModel = new ViewModelProvider(this, factoryRetailer).get(RetailerViewModel.class);
+        viewModel.getRetailer().observe(this, retailerEntity -> {
+            retailer=retailerEntity;
+        });
+
+        tvRetailer.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v){
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://"+retailer.getWebsite().toString()));
+
+                startActivity(browserIntent);
+            }
+        });
+
 
         setTitle("Wine");
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
