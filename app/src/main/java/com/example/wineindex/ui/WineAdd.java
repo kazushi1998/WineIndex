@@ -21,6 +21,7 @@ import com.example.wineindex.viewmodel.WineViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -66,49 +67,56 @@ public class WineAdd extends AppCompatActivity {
         vineyardName = getIntent().getStringExtra("vineyardName");
 
         etWineName = findViewById(R.id.wineAdd_wineName);
-        etRetailerName = findViewById(R.id.wineAdd_wineRetailer);
         etDescription = findViewById(R.id.wineAdd_description);
 
-        List<String> retailerNames =  new ArrayList<String>();
+        List<String> retailerNames = new ArrayList<String>();
+        retailerNames.add("Coop");
         RetailerListViewModel.Factory factory = new RetailerListViewModel.Factory(getApplication());
         listViewModel = new ViewModelProvider(this, factory).get(RetailerListViewModel.class);
         listViewModel.getRetailers().observe(this, retailersEntities -> {
             if (retailersEntities != null) {
                 for (RetailerEntity retailer : retailersEntities) {
-                    retailerNames.add(retailer.getName());
+                    if (!retailer.getName().equals("Coop")) {
+                        retailerNames.add(retailer.getName());
+                    }
                 }
             }
         });
+        for (String bla : retailerNames) {
+            System.out.println(bla);
+        }
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, retailerNames);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        sRetailer = (Spinner)findViewById(R.id.sRetailer);
+        sRetailer = (Spinner) findViewById(R.id.sRetailer);
+        sRetailer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println(sRetailer.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
         sRetailer.setAdapter(adapter);
 
         fabAccept = findViewById(R.id.floatingActionButton);
         fabAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(etWineName.getText().toString().equals("")){
-                   toast = Toast.makeText(WineAdd.this, "No Winename was entered",Toast.LENGTH_SHORT);
-                   toast.show();
+                if (etWineName.getText().toString().equals("")) {
+                    toast = Toast.makeText(WineAdd.this, "No Winename was entered", Toast.LENGTH_SHORT);
+                    toast.show();
                     etWineName.requestFocus();
                     return;
                 }
-                if(etRetailerName.getText().toString().equals("")){
-                    toast = Toast.makeText(WineAdd.this, "No Retailer was entered",Toast.LENGTH_SHORT);
-                    toast.show();
-                    etRetailerName.requestFocus();
-                    return;
-                }
 
-                else{
-                    wineName = etWineName.getText().toString();
-                    retailer = etRetailerName.getText().toString();
-                    description = etDescription.getText().toString();
-                    createWine(wineName, vineyardName,retailer,description);
-                    openActivityVineyardInfo();
-                }
+                wineName = etWineName.getText().toString();
+                retailer = sRetailer.getSelectedItem().toString();
+                description = etDescription.getText().toString();
+                createWine(wineName, vineyardName, retailer, description);
+                openActivityVineyardInfo();
             }
         });
     }

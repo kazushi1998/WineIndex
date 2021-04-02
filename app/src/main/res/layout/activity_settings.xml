@@ -39,7 +39,8 @@
             android:layout_height="wrap_content"
             android:text="Dark mode"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
     </LinearLayout>
 
     <LinearLayout
@@ -64,10 +65,10 @@
             android:id="@+id/tvAboutUsText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/about_us_text"
-            android:textAlignment="center"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
+            android:text="@string/about_us_text"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp" />
     </LinearLayout>
