@@ -69,7 +69,6 @@ public class WineAdd extends AppCompatActivity {
         etRetailerName = findViewById(R.id.wineAdd_wineRetailer);
         etDescription = findViewById(R.id.wineAdd_description);
 
-
         List<String> retailerNames =  new ArrayList<String>();
         RetailerListViewModel.Factory factory = new RetailerListViewModel.Factory(getApplication());
         listViewModel = new ViewModelProvider(this, factory).get(RetailerListViewModel.class);

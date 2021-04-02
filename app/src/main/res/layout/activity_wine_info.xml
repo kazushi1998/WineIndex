@@ -33,7 +33,6 @@
             android:id="@+id/wineInfoName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="Wine"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
@@ -44,7 +43,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:layout_weight="1"
             android:gravity="center"
             android:text="Description"
             android:textAlignment="center"
@@ -52,25 +50,26 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tvAvailableAt"
+            android:id="@+id/tv_AvailableAt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
+            android:background="?attr/colorPrimaryVariant"
+            android:gravity="center_vertical"
             android:text="Available at"
             android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp" />
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
 
         <Button
             android:id="@+id/tvRetailer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Retailer"
             android:layout_gravity="center_horizontal"
+            android:text="Retailer"
             android:textAlignment="center"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="25sp" />
 
     </LinearLayout>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
     android:orientation="vertical"
     tools:context=".ui.Settings">
 
@@ -16,21 +17,29 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="83dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tvPlatzhalter"
-            android:layout_width="274dp"
+            android:id="@+id/tv_Settings"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="" />
+            android:background="?attr/colorPrimaryVariant"
+            android:gravity="center_vertical"
+            android:text="Settings"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
 
         <Switch
             android:id="@+id/sDarkMode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dark mode" />
+            android:text="Dark mode"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -39,25 +48,28 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tvAboutUs"
+            android:id="@+id/tv_AboutUs"
             android:layout_width="match_parent"
-            android:layout_height="87dp"
-            android:layout_weight="1"
-            android:text="About Us"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimaryVariant"
+            android:gravity="center_vertical"
+            android:text="About us"
             android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textSize="20dp"
-            android:textStyle="bold|italic" />
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
 
         <TextView
             android:id="@+id/tvAboutUsText"
             android:layout_width="match_parent"
-            android:layout_height="531dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:text="@string/about_us_text"
-            android:textStyle="bold"
             android:textAlignment="center"
-            android:textSize="20dp"/>
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
     </LinearLayout>
 
 </LinearLayout>

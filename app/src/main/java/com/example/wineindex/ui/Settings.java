@@ -26,7 +26,7 @@ public class Settings extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        setTitle("Settings");
+        setTitle("More");
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         darkModeActivated = prefs.getBoolean("darkMode", false);

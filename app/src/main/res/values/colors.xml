@@ -8,8 +8,8 @@
     <color name="wineRed">#811F1F</color>
 
     <!-- night theme -->
-    <color name="redDark">#811F1F</color>
-    <color name="wineRedDark">#4C0A0A</color>
+    <color name="redDark">#4C0A0A</color>
+    <color name="wineRedDark">#330303</color>
 
     <color name="green">#7BED7D</color>
 </resources>

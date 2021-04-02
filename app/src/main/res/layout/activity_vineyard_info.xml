@@ -51,7 +51,7 @@
             android:gravity="center"
             android:text="Description"
             android:textAlignment="center"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -68,9 +68,10 @@
             android:gravity="center_vertical"
             android:text="Available Wine"
             android:textAlignment="center"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/winesRecyclerView"
