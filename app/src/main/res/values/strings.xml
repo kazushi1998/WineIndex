@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">WineIndex</string>
+    <string name="about_us_text">We are a group of 3 business IT students with a fondness for wine. Accordingly, it only makes sense that we create an app for it. </string>
 
 </resources>
