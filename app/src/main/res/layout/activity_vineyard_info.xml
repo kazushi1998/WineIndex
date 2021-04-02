@@ -90,6 +90,6 @@
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_action_add"
-        app:backgroundTint="@color/darkRed" />
+        app:backgroundTint="@color/wineRed" />
 
 </LinearLayout>

@@ -31,6 +31,9 @@ public class WineInfo extends AppCompatActivity {
     private Button tvRetailer;
     private String retailerName;
 
+    private TextView tvDescription;
+    private String description;
+
     private RetailerEntity retailer;
     private RecyclerAdapter recyclerAdapter;
     private RetailerViewModel viewModel;
@@ -46,12 +49,16 @@ public class WineInfo extends AppCompatActivity {
 
         vineyardName = getIntent().getStringExtra("vineyardName");
         retailerName = getIntent().getStringExtra("retailerName");
+        description = getIntent().getStringExtra("description");
 
         wineInfoName = findViewById(R.id.wineInfoName);
         wineInfoName.setText(vineyardName);
 
         tvRetailer = (Button)findViewById(R.id.tvRetailer);
         tvRetailer.setText(retailerName);
+
+        tvDescription = findViewById(R.id.tvWineDescription);
+        tvDescription.setText(description);
 
         RetailerViewModel.Factory factoryRetailer = new RetailerViewModel.Factory(getApplication(),retailerName);
         viewModel = new ViewModelProvider(this, factoryRetailer).get(RetailerViewModel.class);

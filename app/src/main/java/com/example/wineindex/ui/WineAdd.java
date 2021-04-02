@@ -31,8 +31,10 @@ public class WineAdd extends AppCompatActivity {
 
     private EditText etWineName;
     private EditText etRetailerName;
+    private EditText etDescription;
     private String wineName;
     private String retailer;
+    private String description;
 
     private WineEntity wine;
     private WineViewModel viewModel;
@@ -58,6 +60,8 @@ public class WineAdd extends AppCompatActivity {
 
         etRetailerName = findViewById(R.id.wineAdd_wineRetailer);
 
+        etDescription = findViewById(R.id.wineAdd_description);
+
         fabAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +81,8 @@ public class WineAdd extends AppCompatActivity {
                 else{
                     wineName = etWineName.getText().toString();
                     retailer = etRetailerName.getText().toString();
-                    createWine(wineName, vineyardName,retailer);
+                    description = etDescription.getText().toString();
+                    createWine(wineName, vineyardName,retailer,description);
                     openActivityVineyardInfo();
                 }
             }
@@ -129,7 +134,7 @@ public class WineAdd extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void createWine(String wineName, String vineyardName, String retailer) {
+    private void createWine(String wineName, String vineyardName, String retailer, String description) {
         WineViewModel.Factory factory = new WineViewModel.Factory(getApplication(), wineName);
         viewModel = new ViewModelProvider(this, factory).get(WineViewModel.class);
         viewModel.getWine().observe(this, wineEntity -> {
@@ -138,7 +143,7 @@ public class WineAdd extends AppCompatActivity {
             }
         });
 
-        wine = new WineEntity(wineName, vineyardName, retailer);
+        wine = new WineEntity(wineName, vineyardName, retailer, description);
 
         viewModel.createWine(wine, new OnAsyncEventListener() {
             @Override
