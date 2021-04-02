@@ -34,6 +34,5 @@ public class RetailerRepository {
     public LiveData<List<RetailerEntity>> getAllRetailers() {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("retailer");
         return new RetailerListLiveData(reference);
-
     }
 }

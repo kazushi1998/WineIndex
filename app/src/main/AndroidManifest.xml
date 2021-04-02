@@ -16,7 +16,8 @@
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.VineyardInfo"></meta-data>
         </activity>
-        <activity android:name=".ui.Settings" />
+        <activity android:name=".ui.Settings"
+            android:parentActivityName=".ui.MainActivity"/>
         <activity
             android:name=".ui.VineyardInfo"
             android:parentActivityName=".ui.MainActivity" />

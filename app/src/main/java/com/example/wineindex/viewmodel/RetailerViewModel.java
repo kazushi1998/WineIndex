@@ -22,8 +22,7 @@ public class RetailerViewModel extends AndroidViewModel {
     // MediatorLiveData can observe other LiveData objects and react on their emissions.
     private final MediatorLiveData<RetailerEntity> observableClient;
 
-    public RetailerViewModel(@NonNull Application application,
-                             final String name, RetailerRepository retailerRepository) {
+    public RetailerViewModel(@NonNull Application application, final String name, RetailerRepository retailerRepository) {
         super(application);
 
         repository = retailerRepository;

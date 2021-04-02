@@ -25,8 +25,8 @@ import java.util.List;
 
 public class WineInfo extends AppCompatActivity {
 
-    private TextView wineInfoName;
-    private String vineyardName;
+    private TextView tvWineName;
+    private String wineName;
 
     private Button tvRetailer;
     private String retailerName;
@@ -46,13 +46,13 @@ public class WineInfo extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        vineyardName = getIntent().getStringExtra("vineyardName");
+        
+        wineName = getIntent().getStringExtra("vineyardName");
         retailerName = getIntent().getStringExtra("retailerName");
         description = getIntent().getStringExtra("description");
 
-        wineInfoName = findViewById(R.id.wineInfoName);
-        wineInfoName.setText(vineyardName);
+        tvWineName = findViewById(R.id.wineInfoName);
+        tvWineName.setText(wineName);
 
         tvRetailer = (Button)findViewById(R.id.tvRetailer);
         tvRetailer.setText(retailerName);
