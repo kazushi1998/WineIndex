@@ -16,6 +16,9 @@ public class WineInfo extends AppCompatActivity {
     private TextView wineInfoName;
     private String vineyardName;
 
+    private TextView tvRetailer;
+    private String retailerName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,9 +29,14 @@ public class WineInfo extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         vineyardName = getIntent().getStringExtra("vineyardName");
+        retailerName = getIntent().getStringExtra("retailer");
 
         wineInfoName = findViewById(R.id.wineInfoName);
         wineInfoName.setText(vineyardName);
+
+        tvRetailer = findViewById(R.id.tvRetailer);
+        tvRetailer.setText(retailerName);
+
         setTitle("Wine");
     }
 

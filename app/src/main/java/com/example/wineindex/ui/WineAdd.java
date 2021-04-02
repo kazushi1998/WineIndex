@@ -30,7 +30,9 @@ public class WineAdd extends AppCompatActivity {
     private String vineyardName;
 
     private EditText etWineName;
+    private EditText etRetailerName;
     private String wineName;
+    private String retailer;
 
     private WineEntity wine;
     private WineViewModel viewModel;
@@ -54,6 +56,8 @@ public class WineAdd extends AppCompatActivity {
 
         etWineName = findViewById(R.id.wineAdd_wineName);
 
+        etRetailerName = findViewById(R.id.wineAdd_wineRetailer);
+
         fabAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,9 +67,17 @@ public class WineAdd extends AppCompatActivity {
                     etWineName.requestFocus();
                     return;
                 }
+                if(etRetailerName.getText().toString().equals("")){
+                    toast = Toast.makeText(WineAdd.this, "No Retailer was entered",Toast.LENGTH_SHORT);
+                    toast.show();
+                    etRetailerName.requestFocus();
+                    return;
+                }
+
                 else{
                     wineName = etWineName.getText().toString();
-                    createWine(wineName, vineyardName);
+                    retailer = etRetailerName.getText().toString();
+                    createWine(wineName, vineyardName,retailer);
                     openActivityVineyardInfo();
                 }
             }
@@ -117,7 +129,7 @@ public class WineAdd extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void createWine(String wineName, String vineyardName) {
+    private void createWine(String wineName, String vineyardName, String retailer) {
         WineViewModel.Factory factory = new WineViewModel.Factory(getApplication(), wineName);
         viewModel = new ViewModelProvider(this, factory).get(WineViewModel.class);
         viewModel.getWine().observe(this, wineEntity -> {
@@ -126,7 +138,7 @@ public class WineAdd extends AppCompatActivity {
             }
         });
 
-        wine = new WineEntity(wineName, vineyardName);
+        wine = new WineEntity(wineName, vineyardName, retailer);
 
         viewModel.createWine(wine, new OnAsyncEventListener() {
             @Override

@@ -17,6 +17,8 @@ public class WineEntity {
 
     private String vineyard;
 
+    private String retailer;
+
     @Exclude
     public String getName() {
         return name;
@@ -34,9 +36,19 @@ public class WineEntity {
         this.vineyard = vineyard;
     }
 
-    public WineEntity(@NonNull String name, String vineyard) {
+    public String getRetailer() {
+        return retailer;
+    }
+
+    public void setRetailer(String retailer) {
+        this.retailer = retailer;
+    }
+
+
+    public WineEntity(@NonNull String name, String vineyard, String retailer) {
         this.name=name;
         this.vineyard=vineyard;
+        this.retailer=retailer;
     }
 
     public WineEntity(){
