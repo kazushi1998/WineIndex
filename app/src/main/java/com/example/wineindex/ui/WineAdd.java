@@ -12,14 +12,22 @@ import android.view.Menu;
 import android.view.View;
 
 import com.example.wineindex.R;
+import com.example.wineindex.database.entity.RetailerEntity;
 import com.example.wineindex.database.entity.WineEntity;
 import com.example.wineindex.util.OnAsyncEventListener;
+import com.example.wineindex.viewmodel.RetailerListViewModel;
+import com.example.wineindex.viewmodel.VineyardListViewModel;
 import com.example.wineindex.viewmodel.WineViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class WineAdd extends AppCompatActivity {
 
@@ -35,9 +43,12 @@ public class WineAdd extends AppCompatActivity {
     private String wineName;
     private String retailer;
     private String description;
+    private Spinner sRetailer;
 
     private WineEntity wine;
     private WineViewModel viewModel;
+
+    private RetailerListViewModel listViewModel;
 
     Toast toast;
 
@@ -54,14 +65,28 @@ public class WineAdd extends AppCompatActivity {
 
         vineyardName = getIntent().getStringExtra("vineyardName");
 
-        fabAccept = findViewById(R.id.floatingActionButton);
-
         etWineName = findViewById(R.id.wineAdd_wineName);
-
         etRetailerName = findViewById(R.id.wineAdd_wineRetailer);
-
         etDescription = findViewById(R.id.wineAdd_description);
 
+
+        List<String> retailerNames =  new ArrayList<String>();
+        RetailerListViewModel.Factory factory = new RetailerListViewModel.Factory(getApplication());
+        listViewModel = new ViewModelProvider(this, factory).get(RetailerListViewModel.class);
+        listViewModel.getRetailers().observe(this, retailersEntities -> {
+            if (retailersEntities != null) {
+                for (RetailerEntity retailer : retailersEntities) {
+                    retailerNames.add(retailer.getName());
+                }
+            }
+        });
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, retailerNames);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        sRetailer = (Spinner)findViewById(R.id.sRetailer);
+        sRetailer.setAdapter(adapter);
+
+        fabAccept = findViewById(R.id.floatingActionButton);
         fabAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,7 +133,6 @@ public class WineAdd extends AppCompatActivity {
             case R.id.action_vineyard:
                 openActivityMain();
                 break;
-
             case R.id.action_settings:
                 openActivitySettings();
                 break;
@@ -121,7 +145,6 @@ public class WineAdd extends AppCompatActivity {
         Intent intent = new Intent(this, VineyardInfo.class);
         intent.putExtra("vineyardName", vineyardName);
         startActivity(intent);
-
     }
 
     public void openActivityMain() {
