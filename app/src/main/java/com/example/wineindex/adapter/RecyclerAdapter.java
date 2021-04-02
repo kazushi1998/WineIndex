@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wineindex.R;
+import com.example.wineindex.database.entity.RetailerEntity;
 import com.example.wineindex.database.entity.VineyardEntity;
 import com.example.wineindex.database.entity.WineEntity;
 import com.example.wineindex.util.RecyclerViewItemClickListener;
@@ -87,6 +88,9 @@ public class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerAdapter.Vie
                     if (mData instanceof WineEntity) {
                         return ((WineEntity) mData.get(oldItemPosition)).getName().equals(((WineEntity) data.get(newItemPosition)).getName());
                     }
+                    if (mData instanceof RetailerEntity) {
+                        return ((RetailerEntity) mData.get(oldItemPosition)).getName().equals(((RetailerEntity) data.get(newItemPosition)).getName());
+                    }
 
                     return false;
                 }
@@ -106,6 +110,14 @@ public class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerAdapter.Vie
                         return Objects.equals(newWine.getName(), oldWine.getName());
 
                     }
+
+                    if(mData instanceof RetailerEntity) {
+                        RetailerEntity newRetailer = (RetailerEntity) data.get(newItemPosition);
+                        RetailerEntity oldRetailer = (RetailerEntity) mData.get(newItemPosition);
+                        return Objects.equals(newRetailer.getName(), oldRetailer.getName());
+
+                    }
+
                     return false;
                 }
             });
