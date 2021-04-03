@@ -39,7 +39,6 @@ public class WineAdd extends AppCompatActivity {
     private String vineyardName;
 
     private EditText etWineName;
-    private EditText etRetailerName;
     private EditText etDescription;
     private String wineName;
     private String retailer;

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -83,6 +84,8 @@ public class VineyardInfo extends AppCompatActivity {
                 intent.putExtra("vineyardName", wines.get(position).getName());
                 intent.putExtra("retailerName", wines.get(position).getRetailer());
                 intent.putExtra("description", wines.get(position).getDescription());
+
+
                 startActivity(intent);
             }
 
@@ -96,7 +99,10 @@ public class VineyardInfo extends AppCompatActivity {
                         Intent.FLAG_ACTIVITY_NO_ANIMATION |
                                 Intent.FLAG_ACTIVITY_NO_HISTORY
                 );
-                intent.putExtra("vineyardName", wines.get(position).getName());
+                intent.putExtra("wineName", wines.get(position).getName());
+                intent.putExtra("wineDescription", wines.get(position).getDescription());
+                intent.putExtra("retailer", wines.get(position).getRetailer());
+//                intent.putExtra("wine", (Parcelable) wines.get(position));
                 startActivity(intent);
             }
         });
