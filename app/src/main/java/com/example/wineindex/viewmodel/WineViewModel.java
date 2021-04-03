@@ -76,4 +76,11 @@ public class WineViewModel extends AndroidViewModel {
        WineRepository.getInstance().insert(wineEntity, callback);
     }
 
+    public void updateWine(WineEntity wine, OnAsyncEventListener callback){
+       repository.update(wine, callback);
+    }
+    public void deleteWine(WineEntity wineEntity, OnAsyncEventListener callback){
+        repository.delete(wineEntity, callback);
+    }
+
 }

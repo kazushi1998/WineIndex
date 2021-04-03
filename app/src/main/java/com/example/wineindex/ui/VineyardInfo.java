@@ -28,6 +28,7 @@ import com.example.wineindex.viewmodel.VineyardViewModel;
 import com.example.wineindex.viewmodel.WineListViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +48,11 @@ public class VineyardInfo extends AppCompatActivity {
     private RecyclerAdapter recyclerAdapter;
     private WineListViewModel listviewModel;
 
+    private WineEntity wine;
+
     private String vineyardName;
+
+    private WineEntity wineEntity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,10 +104,15 @@ public class VineyardInfo extends AppCompatActivity {
                         Intent.FLAG_ACTIVITY_NO_ANIMATION |
                                 Intent.FLAG_ACTIVITY_NO_HISTORY
                 );
+
                 intent.putExtra("wineName", wines.get(position).getName());
                 intent.putExtra("wineDescription", wines.get(position).getDescription());
                 intent.putExtra("retailer", wines.get(position).getRetailer());
-//                intent.putExtra("wine", (Parcelable) wines.get(position));
+                intent.putExtra("vineyardName", vineyardName);
+
+
+                wine = wines.get(position);
+                intent.putExtra("wineEntity",wines.get(position));
                 startActivity(intent);
             }
         });

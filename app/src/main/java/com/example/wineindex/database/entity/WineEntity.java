@@ -7,11 +7,12 @@ import androidx.room.PrimaryKey;
 
 import com.google.firebase.database.Exclude;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 @Entity
-public class WineEntity {
+public class WineEntity implements Serializable {
 
     private String name;
 
@@ -69,7 +70,9 @@ public class WineEntity {
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("name", name);
+        result.put("vineyard", vineyard);
+        result.put("description",description);
+        result.put("retailer",retailer);
         return result;
     }
 }

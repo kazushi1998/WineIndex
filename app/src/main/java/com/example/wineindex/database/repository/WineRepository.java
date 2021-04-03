@@ -15,9 +15,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.List;
 
 public class WineRepository {
-    private static WineRepository instance;
+    public static WineRepository instance;
 
-    private WineRepository() {};
+    public WineRepository() {};
 
     public static WineRepository getInstance() {
         if(instance == null) {
