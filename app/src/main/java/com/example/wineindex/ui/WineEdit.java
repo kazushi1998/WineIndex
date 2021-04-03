@@ -81,12 +81,11 @@ public class WineEdit extends AppCompatActivity {
         updateButton = findViewById(R.id.wineEdit_updateButton);
         deleteButton = findViewById(R.id.wineEdit_deleteButton);
 
-        updateButton.setOnClickListener(new View.OnClickListener() {
 
+        updateButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-
                 wineName = tvWineName.getText().toString();
                 retailer = sRetailer.getSelectedItem().toString();
                 description = etDescription.getText().toString();
@@ -97,9 +96,26 @@ public class WineEdit extends AppCompatActivity {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                WineViewModel.Factory factory = new WineViewModel.Factory(getApplication(), wineName);
+                wineViewModel = new ViewModelProvider(WineEdit.this, factory).get(WineViewModel.class);
+
                     toast = Toast.makeText(WineEdit.this, "The Wine has been deleted", Toast.LENGTH_SHORT);
                     toast.show();
+                    openActivityVineyardInfo();
+                    wineViewModel.deleteWine(wine, new OnAsyncEventListener() {
+                        @Override
+                        public void onSuccess() {
+                            Log.d(TAG, "Delete Wine: success");
+                        }
+
+                        @Override
+                        public void onFailure(Exception e) {
+                            Log.d(TAG, "Delete Wine: failure", e);
+                        }
+                    });
                     return;
+
                 }
 
             }
@@ -134,22 +150,6 @@ public class WineEdit extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
-//        int selectionPosition= adapter.getPosition(retailer);
-//        sRetailer.setSelection(selectionPosition);
-
-//        sRetailer.setSelection(((ArrayAdapter<String>)sRetailer.getAdapter()).getPosition(retailer));
-
-//        int position = getIndex(sRetailer,retailer);
-//        sRetailer.setSelection(position);
-
-//        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, retailerNames);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        sRetailer.setAdapter(adapter2);
-//        if (retailer != null) {
-//            int spinnerPosition = adapter2.getPosition(retailer);
-//            sRetailer.setSelection(spinnerPosition);
-//        }
 
         tvWineName.setText(wineName);
         etDescription.setText(description);
