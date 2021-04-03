@@ -27,13 +27,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        android:orientation="vertical">
 
         <TextView
             android:id="@+id/wineInfoName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Wine"
+            android:text="@string/wine"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="25sp" />
@@ -44,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:gravity="center"
-            android:text="Description"
+            android:text="@string/description"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
@@ -55,7 +54,7 @@
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimaryVariant"
             android:gravity="center_vertical"
-            android:text="Available at"
+            android:text="@string/available_at"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -67,11 +66,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Retailer"
+            android:text="@string/retailer"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="25sp" />
-
     </LinearLayout>
-
 </LinearLayout>

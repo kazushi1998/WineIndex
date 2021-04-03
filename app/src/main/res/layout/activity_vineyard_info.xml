@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Vineyard"
+            android:text="@string/vineyard"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="25sp" />
@@ -49,16 +49,10 @@
             android:layout_marginBottom="15dp"
             android:layout_weight="2"
             android:gravity="center"
-            android:text="Description"
+            android:text="@string/description"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView12"
@@ -66,7 +60,7 @@
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimaryVariant"
             android:gravity="center_vertical"
-            android:text="Available Wine"
+            android:text="@string/available_wine"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -78,7 +72,6 @@
             android:layout_width="match_parent"
             android:layout_height="284dp"
             android:scrollbars="vertical" />
-
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -92,5 +85,4 @@
         android:focusable="true"
         android:src="@drawable/ic_action_add"
         app:backgroundTint="@color/wineRed" />
-
 </LinearLayout>

@@ -25,18 +25,12 @@
         android:background="@drawable/grapestop"
         android:src="@drawable/leonardo" />
 
-    <View
-        android:id="@+id/divider3"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider" />
-
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimaryVariant"
-        android:text="Vineyards"
+        android:text="@string/vineyards"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="18sp"
@@ -47,5 +41,4 @@
         android:layout_width="match_parent"
         android:layout_height="421dp"
         android:scrollbars="vertical" />
-
 </LinearLayout>

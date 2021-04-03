@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimaryVariant"
-            android:text="Add Wine"
+            android:text="@string/add_wine"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:hint="Name"
+            android:hint="@string/name"
             android:textColorHint="@color/white" />
 
         <EditText
@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:hint="Description"
+            android:hint="@string/description"
             android:textColorHint="@color/white" />
 
         <Spinner
@@ -103,5 +103,4 @@
         android:focusable="true"
         android:src="@drawable/tick"
         app:backgroundTint="@color/green" />
-
 </LinearLayout>

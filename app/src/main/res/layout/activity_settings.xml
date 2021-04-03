@@ -24,9 +24,10 @@
             android:id="@+id/tv_Settings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
             android:background="?attr/colorPrimaryVariant"
             android:gravity="center_vertical"
-            android:text="Settings"
+            android:text="@string/settings"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -37,24 +38,21 @@
             android:id="@+id/sDarkMode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dark mode"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/dark_mode"
             android:textColor="@color/white"
             android:textSize="18sp"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="617dp"
-        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_AboutUs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
             android:background="?attr/colorPrimaryVariant"
             android:gravity="center_vertical"
-            android:text="About us"
+            android:text="@string/about_us"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -68,7 +66,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:text="@string/about_us_text"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:textColor="@color/white"
             android:textSize="18sp" />
     </LinearLayout>

@@ -46,7 +46,7 @@ public class WineInfo extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        
+
         wineName = getIntent().getStringExtra("vineyardName");
         retailerName = getIntent().getStringExtra("retailerName");
         description = getIntent().getStringExtra("description");
@@ -54,21 +54,21 @@ public class WineInfo extends AppCompatActivity {
         tvWineName = findViewById(R.id.wineInfoName);
         tvWineName.setText(wineName);
 
-        tvRetailer = (Button)findViewById(R.id.tvRetailer);
+        tvRetailer = (Button) findViewById(R.id.tvRetailer);
         tvRetailer.setText(retailerName);
 
         tvDescription = findViewById(R.id.tvWineDescription);
         tvDescription.setText(description);
 
-        RetailerViewModel.Factory factoryRetailer = new RetailerViewModel.Factory(getApplication(),retailerName);
+        RetailerViewModel.Factory factoryRetailer = new RetailerViewModel.Factory(getApplication(), retailerName);
         viewModel = new ViewModelProvider(this, factoryRetailer).get(RetailerViewModel.class);
         viewModel.getRetailer().observe(this, retailerEntity -> {
-            retailer=retailerEntity;
+            retailer = retailerEntity;
         });
 
         tvRetailer.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://"+retailer.getWebsite().toString()));
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://" + retailer.getWebsite().toString()));
 
                 startActivity(browserIntent);
             }
@@ -77,7 +77,6 @@ public class WineInfo extends AppCompatActivity {
 
         setTitle("Wine");
     }
-
 
 
     @Override

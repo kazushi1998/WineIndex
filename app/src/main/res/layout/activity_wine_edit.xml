@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimaryVariant"
-            android:text="Edit Wine"
+            android:text="@string/edit_wine"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp"

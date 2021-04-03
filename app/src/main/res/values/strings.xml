@@ -1,5 +1,18 @@
 <resources>
     <string name="app_name">WineIndex</string>
-    <string name="about_us_text">We are a group of 3 business IT students with a fondness for wine. Accordingly, it only makes sense that we create an app for it. </string>
 
+    <string name="vineyard">Vineyard</string>
+    <string name="vineyards">Yineyards</string>
+    <string name="settings">Settings</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="about_us">About Us</string>
+    <string name="about_us_text">We are a group of 3 business IT students with a fondness for wine. Accordingly, it only makes sense that we create an app for it. </string>
+    <string name="available_wine">Available Wine</string>
+    <string name="add_wine">Add Wine</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
+    <string name="edit_wine">Edit Wine</string>
+    <string name="wine">Wine</string>
+    <string name="available_at">Available At</string>
+    <string name="retailer">Retailer</string>
 </resources>

@@ -106,7 +106,7 @@ public class VineyardInfo extends AppCompatActivity {
         listviewModel.getWines().observe(this, wineEntities -> {
             if (wineEntities != null) {
                 for (WineEntity temp : wineEntities) {
-                    if(temp.getVineyard().equals(vineyardName)) {
+                    if (temp.getVineyard().equals(vineyardName)) {
                         wines.add(temp);
                     }
                 }
