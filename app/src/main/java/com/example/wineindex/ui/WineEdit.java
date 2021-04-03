@@ -87,7 +87,6 @@ public class WineEdit extends AppCompatActivity {
             }
         });
 
-
 //        int selectionPosition= adapter.getPosition(retailer);
 //        sRetailer.setSelection(selectionPosition);
 
@@ -106,10 +105,6 @@ public class WineEdit extends AppCompatActivity {
 
         etWineName.setText(wineName);
         etDescription.setText(description);
-
-
-
-
     }
 
     private int getIndex(Spinner spinner, String myString){
