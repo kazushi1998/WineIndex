@@ -104,7 +104,7 @@ public class WineEdit extends AppCompatActivity {
                     final AlertDialog alertDialog = new AlertDialog.Builder(WineEdit.this).create();
                     alertDialog.setTitle("Delete");
                     alertDialog.setCancelable(false);
-                    alertDialog.setMessage("Do you really want to delete this client");
+                    alertDialog.setMessage("Do you really want to delete this Wine");
                     alertDialog.setButton(AlertDialog.BUTTON_POSITIVE,"Delete", (dialog, which) -> {
                         toast = Toast.makeText(WineEdit.this, "The Wine has been deleted", Toast.LENGTH_SHORT);
                         toast.show();
