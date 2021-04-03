@@ -1,5 +1,6 @@
 package com.example.wineindex.ui;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
@@ -100,24 +101,30 @@ public class WineEdit extends AppCompatActivity {
                 WineViewModel.Factory factory = new WineViewModel.Factory(getApplication(), wineName);
                 wineViewModel = new ViewModelProvider(WineEdit.this, factory).get(WineViewModel.class);
 
-                    toast = Toast.makeText(WineEdit.this, "The Wine has been deleted", Toast.LENGTH_SHORT);
-                    toast.show();
-                    openActivityVineyardInfo();
-                    wineViewModel.deleteWine(wine, new OnAsyncEventListener() {
-                        @Override
-                        public void onSuccess() {
+                    final AlertDialog alertDialog = new AlertDialog.Builder(WineEdit.this).create();
+                    alertDialog.setTitle("Delete");
+                    alertDialog.setCancelable(false);
+                    alertDialog.setMessage("Do you really want to delete this client");
+                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE,"Delete", (dialog, which) -> {
+                        toast = Toast.makeText(WineEdit.this, "The Wine has been deleted", Toast.LENGTH_SHORT);
+                        toast.show();
+                        openActivityVineyardInfo();
+                        wineViewModel.deleteWine(wine, new OnAsyncEventListener() {
+                            @Override
+                            public void onSuccess() {
                             Log.d(TAG, "Delete Wine: success");
-                        }
+                                onBackPressed();
+                            }
 
-                        @Override
-                        public void onFailure(Exception e) {
+                            @Override
+                            public void onFailure(Exception e) {
                             Log.d(TAG, "Delete Wine: failure", e);
-                        }
+                            }
+                        });
                     });
-                    return;
-
+                    alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE,"Cancel", (dialog, which) -> alertDialog.dismiss());
+                    alertDialog.show();
                 }
-
             }
         );
 
