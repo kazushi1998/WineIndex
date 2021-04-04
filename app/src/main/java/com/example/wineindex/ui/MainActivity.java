@@ -97,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
                 recyclerAdapter.setData(vineyards);
             }
         });
+
+        recyclerView.setAdapter(recyclerAdapter);
     }
 
     @Override
