@@ -55,15 +55,14 @@ public class WineEntity implements Serializable {
         this.description = description;
     }
 
-
     public WineEntity(@NonNull String name, String vineyard, String retailer, String description) {
-        this.name=name;
-        this.vineyard=vineyard;
-        this.retailer=retailer;
-        this.description=description;
+        this.name = name;
+        this.vineyard = vineyard;
+        this.retailer = retailer;
+        this.description = description;
     }
 
-    public WineEntity(){
+    public WineEntity() {
 
     }
 
@@ -71,8 +70,8 @@ public class WineEntity implements Serializable {
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("vineyard", vineyard);
-        result.put("description",description);
-        result.put("retailer",retailer);
+        result.put("description", description);
+        result.put("retailer", retailer);
         return result;
     }
 }

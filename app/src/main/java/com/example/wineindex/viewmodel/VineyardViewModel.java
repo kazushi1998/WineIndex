@@ -14,21 +14,16 @@ import com.example.wineindex.database.entity.VineyardEntity;
 import com.example.wineindex.database.repository.VineyardRepository;
 import com.example.wineindex.util.OnAsyncEventListener;
 
-public class VineyardViewModel  extends AndroidViewModel {
+public class VineyardViewModel extends AndroidViewModel {
     private VineyardRepository repository;
-
-    private Context applicationContext;
 
     // MediatorLiveData can observe other LiveData objects and react on their emissions.
     private final MediatorLiveData<VineyardEntity> observableClient;
 
-    public VineyardViewModel(@NonNull Application application,
-                           final String name, VineyardRepository vineyardRepository) {
+    public VineyardViewModel(@NonNull Application application, final String name, VineyardRepository vineyardRepository) {
         super(application);
 
         repository = vineyardRepository;
-
-        applicationContext = application.getApplicationContext();
 
         observableClient = new MediatorLiveData<>();
         // set by default null, until we get data from the database.

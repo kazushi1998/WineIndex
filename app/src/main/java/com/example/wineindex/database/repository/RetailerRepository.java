@@ -13,12 +13,12 @@ import java.util.List;
 public class RetailerRepository {
     private static RetailerRepository instance;
 
-    private RetailerRepository() {};
+    private RetailerRepository() {}
 
     public static RetailerRepository getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             synchronized (RetailerRepository.class) {
-                if(instance == null) {
+                if (instance == null) {
                     instance = new RetailerRepository();
                 }
             }

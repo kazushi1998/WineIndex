@@ -7,6 +7,7 @@ import java.util.Map;
 
 @Entity
 public class VineyardEntity {
+
     private String name;
 
     private String description;

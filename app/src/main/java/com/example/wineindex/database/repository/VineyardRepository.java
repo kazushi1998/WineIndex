@@ -21,7 +21,7 @@ import java.util.List;
 public class VineyardRepository {
     private static VineyardRepository instance;
 
-    private VineyardRepository() {};
+    private VineyardRepository() {}
 
     public static VineyardRepository getInstance() {
         if(instance == null) {

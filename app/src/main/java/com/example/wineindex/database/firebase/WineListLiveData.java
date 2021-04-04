@@ -15,7 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WineListLiveData  extends LiveData<List<WineEntity>> {
+public class WineListLiveData extends LiveData<List<WineEntity>> {
     private static final String TAG = "WinesLiveData";
 
     private final DatabaseReference reference;

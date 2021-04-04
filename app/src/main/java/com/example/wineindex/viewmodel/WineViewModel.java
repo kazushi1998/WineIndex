@@ -19,8 +19,6 @@ import com.example.wineindex.util.OnAsyncEventListener;
 public class WineViewModel extends AndroidViewModel {
     private WineRepository repository;
 
-    private Context applicationContext;
-
     // MediatorLiveData can observe other LiveData objects and react on their emissions.
     private final MediatorLiveData<WineEntity> observableClient;
 
@@ -28,8 +26,6 @@ public class WineViewModel extends AndroidViewModel {
         super(application);
 
         repository = wineRepository;
-
-        applicationContext = application.getApplicationContext();
 
         observableClient = new MediatorLiveData<>();
         // set by default null, until we get data from the database.
@@ -73,13 +69,14 @@ public class WineViewModel extends AndroidViewModel {
     }
 
     public void createWine(WineEntity wineEntity, OnAsyncEventListener callback) {
-       WineRepository.getInstance().insert(wineEntity, callback);
+        WineRepository.getInstance().insert(wineEntity, callback);
     }
 
-    public void updateWine(WineEntity wine, OnAsyncEventListener callback){
-       repository.update(wine, callback);
+    public void updateWine(WineEntity wine, OnAsyncEventListener callback) {
+        repository.update(wine, callback);
     }
-    public void deleteWine(WineEntity wineEntity, OnAsyncEventListener callback){
+
+    public void deleteWine(WineEntity wineEntity, OnAsyncEventListener callback) {
         repository.delete(wineEntity, callback);
     }
 

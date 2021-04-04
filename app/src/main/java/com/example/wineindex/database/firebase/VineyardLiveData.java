@@ -9,6 +9,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
+
 import com.example.wineindex.database.entity.VineyardEntity;
 
 public class VineyardLiveData extends LiveData<VineyardEntity> {

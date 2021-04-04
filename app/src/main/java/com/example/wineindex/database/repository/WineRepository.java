@@ -17,12 +17,12 @@ import java.util.List;
 public class WineRepository {
     public static WineRepository instance;
 
-    public WineRepository() {};
+    public WineRepository() {}
 
     public static WineRepository getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             synchronized (WineRepository.class) {
-                if(instance == null) {
+                if (instance == null) {
                     instance = new WineRepository();
                 }
             }
@@ -67,7 +67,7 @@ public class WineRepository {
                 });
     }
 
-    public void delete(final  WineEntity wine, OnAsyncEventListener callback) {
+    public void delete(final WineEntity wine, OnAsyncEventListener callback) {
         FirebaseDatabase.getInstance()
                 .getReference("wines")
                 .child(wine.getName())

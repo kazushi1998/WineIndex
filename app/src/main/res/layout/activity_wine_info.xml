@@ -20,18 +20,41 @@
         android:layout_width="match_parent"
         android:layout_height="225dp"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/grapestop"
-        android:src="@drawable/leonardo" />
+        android:background="@drawable/wine" />
+
+    <TextView
+        android:id="@+id/text_wine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimaryVariant"
+        android:text="@string/wine"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <ImageButton
+            android:id="@+id/imageButton_wineBottle"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/winebottlecirclegrey" />
+
         <TextView
             android:id="@+id/wineInfoName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30sp"
+            android:layout_marginRight="30sp"
             android:text="@string/wine"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
@@ -41,6 +64,8 @@
             android:id="@+id/tvWineDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30sp"
+            android:layout_marginRight="30sp"
             android:layout_marginBottom="15dp"
             android:gravity="center"
             android:text="@string/description"

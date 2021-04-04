@@ -14,14 +14,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.wineindex.R;
-import com.example.wineindex.adapter.RecyclerAdapter;
 import com.example.wineindex.database.entity.RetailerEntity;
-import com.example.wineindex.database.entity.WineEntity;
-import com.example.wineindex.viewmodel.RetailerListViewModel;
 import com.example.wineindex.viewmodel.RetailerViewModel;
-import com.example.wineindex.viewmodel.WineListViewModel;
-
-import java.util.List;
 
 public class WineInfo extends AppCompatActivity {
 
@@ -35,7 +29,6 @@ public class WineInfo extends AppCompatActivity {
     private String description;
 
     private RetailerEntity retailer;
-    private RecyclerAdapter recyclerAdapter;
     private RetailerViewModel viewModel;
 
     @Override
