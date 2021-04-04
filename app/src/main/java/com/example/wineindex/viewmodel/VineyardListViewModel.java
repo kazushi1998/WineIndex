@@ -41,7 +41,6 @@ public class VineyardListViewModel extends AndroidViewModel {
             vineyardRepository = VineyardRepository.getInstance();
         }
 
-
         @Override
         public <T extends ViewModel> T create(Class<T> modelClass) {
             return (T) new VineyardListViewModel(application, vineyardRepository);

@@ -81,9 +81,6 @@ public class WineAdd extends AppCompatActivity {
                 }
             }
         });
-        for (String bla : retailerNames) {
-            System.out.println(bla);
-        }
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, retailerNames);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -91,7 +88,6 @@ public class WineAdd extends AppCompatActivity {
         sRetailer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println(sRetailer.getSelectedItem().toString());
             }
 
             @Override

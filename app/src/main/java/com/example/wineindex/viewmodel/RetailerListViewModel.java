@@ -42,7 +42,6 @@ public class RetailerListViewModel extends AndroidViewModel {
             retailerRepository = RetailerRepository.getInstance();
         }
 
-
         @Override
         public <T extends ViewModel> T create(Class<T> modelClass) {
             return (T) new RetailerListViewModel(application, retailerRepository);

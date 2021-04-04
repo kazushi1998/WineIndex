@@ -97,18 +97,6 @@ public class MainActivity extends AppCompatActivity {
                 recyclerAdapter.setData(vineyards);
             }
         });
-
-        FirebaseDatabase.getInstance().getReference("vineyard").child("1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (!task.isSuccessful()) {
-                    System.out.println("firebase Error getting data" + task.getException());
-                } else {
-                    System.out.println("firebase " + String.valueOf(task.getResult().getValue()));
-                }
-            }
-        });
-        recyclerView.setAdapter(recyclerAdapter);
     }
 
     @Override

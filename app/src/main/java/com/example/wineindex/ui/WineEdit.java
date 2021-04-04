@@ -150,7 +150,6 @@ public class WineEdit extends AppCompatActivity {
         sRetailer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println(sRetailer.getSelectedItem().toString());
             }
 
             @Override
@@ -232,7 +231,6 @@ public class WineEdit extends AppCompatActivity {
         wine.setDescription(description);
         wine.setRetailer(retailer);
         wine.setVineyard(vineyardName);
-        System.out.println(wine.getName().toString());
         wineViewModel.updateWine(wine, new OnAsyncEventListener() {
             @Override
             public void onSuccess() {
